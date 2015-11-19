@@ -1,29 +1,18 @@
-<div>
-  <h1>Sign In</h1>
-  <div style="width:90%;background-color:lightgrey;"> 
-      <form class="list" ng-submit="glob.signUp()">
-      <label class="item item-input">
-      <input ng-model="glob.user.email" placeholder="Email Address" type="text" ng-required="true"/>
-      </label>
-
-      <label class="item item-input">
-      <input ng-model="glob.user.password" placeholder="Password" type="password" ng-required="true"/>
-      </label>
-
-      <div style="text-align: center">
-        <!-- <md-button ng-click="glob.isLogin = false;" class="md-accent md-raised"> Sign Up</md-button> -->
-        <button type="submit" class="button"> Sign In </button>
-      </div>
-
-      </form>
-      </div>
-
-  <hr>
-  <div class="text-center">
-     <button ui-sref="ForgotPassword" class="button"> Forgot Password? </button>
-     <button ui-sref="Home" ng-click="glob.user = {};" class="button"> Cancel </button>
-  </div>
-
-
-
-</div>
+<!-- GLOBAL CONTROLLER  -->
+<h1 style="color : Black" class="md-toolbar-tools" >Sign In</h1>
+          <form ng-submit="glob.signIn()">
+               <md-input-container>
+                 <label> Email </label>
+                 <input ng-model="glob.user.email" type="text" ng-required="true">
+               </md-input-container>
+               <md-input-container>
+                 <label> Password </label>
+                 <input ng-model="glob.user.password" type="password" ng-required="true">
+               </md-input-container>
+               <!-- Sign in, Close nav, register Buttons: Submit and Register -->
+                    <div style="text-align: center">
+                      <!-- <md-button ng-click="nav.isLogin = false;" class="md-accent md-raised"> Sign Up</md-button> -->
+                      <md-button type="submit"> Sign In </md-button>
+                        <md-button ui-sref="ResetPasswordEs"> Forgot your Password? <md-button>
+                    </div>
+             </form>
