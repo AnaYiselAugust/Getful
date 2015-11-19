@@ -12,15 +12,20 @@ $mint: rgb(121,189,143);
 $teal: rgb(0,163,136);
 $white: rgb(255,255,255);
 $lightgrey: rgb(241,241,242);
-//$medgrey;
+$medgrey: rgb(147,149,151);
 //$darkgrey:
 
 // IMAGES
 $bg: url('/assets/bg-flipped.jpg');
 
 // TEXT
+body {
+	color: $medgrey;
+}
 h1 {
 	color: $white !important;
+	text-transform: uppercase;
+
 }
 h2 {
 	color: $white !important;
@@ -38,12 +43,25 @@ a {
 	color: $white;	
 	text-transform: uppercase;
 }
+placeholder {
+	color: red;
+	font-size: 10px;
+}
+.md-input-has-placeholder {
+	color: red;
+}
 
+
+
+// LAYOUT
 .center {
 	text-align: center;
 }
 .backdrop {
-	background-color: $lightgrey;
+	background-color: $lightgrey !important;
+}
+.box {
+	width:90%;
 }
 .top {
 	height:70%;
@@ -73,10 +91,19 @@ ion-content {
 .button {
 	background-color: $burntorange !important;
 	border-color: $burntorange !important;
+	border: 2px solid;
+	border-radius: 25px;
 	color: $white !important;
 	font-weight: bold;
 	text-transform: uppercase;
 	padding: 0px 20px 0px 20px !important;
+	-webkit-filter: drop-shadow(12px 12px 15px rgba(0,0,0,0.5));
+	filter: url(#drop-shadow);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
+.shrink {
+	line-height:50%;
 }
 img {
 	-webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));

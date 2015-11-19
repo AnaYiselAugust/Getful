@@ -1,7 +1,6 @@
-<div class="center"> 
-
+<div>
   <h1>Sign In</h1>
-  <div style="width:90%">
+  <div style="width:90%;background-color:lightgrey;"> 
       <form class="list" ng-submit="glob.signUp()">
       <label class="item item-input">
       <input ng-model="glob.user.email" placeholder="Email Address" type="text" ng-required="true"/>
@@ -24,5 +23,7 @@
      <button ui-sref="ForgotPassword" class="button"> Forgot Password? </button>
      <button ui-sref="Home" ng-click="glob.user = {};" class="button"> Cancel </button>
   </div>
+
+
 
 </div>

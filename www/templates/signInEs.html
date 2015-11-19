@@ -1,18 +1,21 @@
-<!-- GLOBAL CONTROLLER  -->
-<h1 style="color : Black" class="md-toolbar-tools" >Iniciar Sesión</h1>
-          <form ng-submit="glob.signInEs()">
+<div>
+<h1>Iniciar Sesión</h1>
+  <div style="width:90%;background-color:lightgrey;">
+          <form class="list" ng-submit="glob.signInEs()">
                <md-input-container>
-                 <label> Correo Electrónico </label>
-                 <input ng-model="glob.user.email" type="text" ng-required="true">
+                 <label class="item item-input">
+                 <input ng-model="glob.user.email" placeholder="Correo Electrónico" type="text" ng-required="true">
+                 </label>
                </md-input-container>
                <md-input-container>
                  <label> Contraseña </label>
-                 <input ng-model="glob.user.password" type="password" ng-required="true">
+                 <input ng-model="glob.user.password" placeholder="Contraseña" type="password" ng-required="true">
                </md-input-container>
                <!-- Sign in, Close nav, register Buttons: Submit and Register -->
                     <div style="text-align: center">
                       <!-- <md-button ng-click="nav.isLogin = false;" class="md-accent md-raised"> Sign Up</md-button> -->
-                      <md-button type="submit"> Iniciar </md-button>
-                        <md-button ui-sref="ResetPasswordEs"> Olvidaste tu contraseña? <md-button>
+                      <button type="submit" class="button"> Iniciar </button><br/>
+                      <a ui-sref="ResetPasswordEs"> Olvidaste tu contraseña? </a>
                     </div>
              </form>
+</div>
