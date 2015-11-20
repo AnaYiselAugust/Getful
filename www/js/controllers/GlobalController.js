@@ -31,13 +31,13 @@
 // ---------------- SIGN IN ----------------------------------------
 		glob.signIn = function() {
 			GlobalFactory.signIn(glob.user).then(function(){
-				$state.go('tab.dash', {id: glob.user._id});
+				$state.go('tab.Dash', {id: glob.user._id});
 			});
 		};
 
 		glob.signInEs = function() {
 			GlobalFactory.signIn(glob.user).then(function(){
-				$state.go('tab.dash', {id: glob.user._id});
+				$state.go('tab.DashEs', {id: glob.user._id});
 			});
 		};
 

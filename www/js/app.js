@@ -90,41 +90,94 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       templateUrl: 'templates/resetPasswordEs.html'
     })
 
-
-
+//---------------- TAB STATES ---------------
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
+   .state('tabEs', {
+    url: '/tabEs',
+    abstract: true,
+    templateUrl: 'templates/tabsEs.html'
+  })
 
+//---------------- DASH TAB STATES ---------------
   // Each tab has its own nav history stack:
 
-  .state('tab.dash', {
+  .state('tab.Dash', {
     url: '/dash',
     views: {
       'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+        templateUrl: 'templates/dash.html',
+      }
+    }
+  })
+    .state('tab.DashEs', {
+    url: '/dashEs',
+    views: {
+      'tab-dashEs': {
+        templateUrl: 'templates/dashEs.html',
       }
     }
   })
 
-  .state('tab.circles', {
+//---------------- CIRCLES TAB STATES ---------------
+  .state('tab.Circles', {
       url: '/circles',
       views: {
         'tab-circles': {
-          templateUrl: 'templates/tab-circles.html',
-          controller: 'ContactsCtrl'
+          templateUrl: 'templates/circles.html',
         }
       }
     })
+    .state('tab.CirclesEs', {
+      url: '/circulos',
+      views: {
+        'tab-circlesEs': {
+          templateUrl: 'templates/circlesEs.html',
+        }
+      }
+    })
+    .state('tab.DisplayCircle',{
+      url: '/displaycircle',
+      templateUrl: 'templates/displayCircle.html'
+    })
+    .state('tab.DisplayCircleEs',{
+      url: '/displaycircleEs',
+      templateUrl: 'templates/displayCircleEs.html'
+    })
+    .state('tab.CreateCircle',{
+      url: '/createcircle',
+      templateUrl: 'templates/createCircle.html'
+    })
+    .state('tab.CreateCircleEs',{
+      url: '/createcircleEs',
+      templateUrl: 'templates/createCircleEs.html'
+    })
+    .state('tab.AddContactCircle',{
+      url: '/addcontactcircle',
+      templateUrl: 'templates/addContactCircle.html'
+    })
+    .state('tab.AddContactCircleEs',{
+      url: '/addcontactcircleEs',
+      templateUrl: 'templates/addContactCircleEs.html'
+    })
+    .state('tab.EditCircle',{
+      url: '/editcircle',
+      templateUrl: 'templates/editCircle.html'
+    })
+    .state('tab.EditCircleEs',{
+      url: '/editcircleEs',
+      templateUrl: 'templates/editCircleEs.html'
+    })
+//---------------- CONTACTS TAB STATES ---------------
       .state('tab.contacts', {
       url: '/contacts',
       views: {
         'tab-contacts': {
-          templateUrl: 'templates/tab-contacts.html',
+          templateUrl: 'templates/contacts.html',
           controller: 'ContactsCtrl'
         }
       }
@@ -139,11 +192,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       }
     })
 
+//---------------- REQUESTS TAB STATES ---------------
   .state('tab.requests', {
     url: '/requests',
     views: {
       'tab-requests': {
-        templateUrl: 'templates/tab-requests.html',
+        templateUrl: 'templates/requests.html',
         controller: 'RequestsCtrl'
       }
     }
