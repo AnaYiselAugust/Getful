@@ -1,5 +1,5 @@
 <!-- GLOBAL CONTROLLER  -->
-<h1 style="color : Black" class="md-toolbar-tools" >Sign In</h1>
+<h1>Sign In</h1>
           <form ng-submit="glob.signIn()">
                <md-input-container>
                  <label> Email </label>
@@ -9,10 +9,8 @@
                  <label> Password </label>
                  <input ng-model="glob.user.password" type="password" ng-required="true">
                </md-input-container>
-               <!-- Sign in, Close nav, register Buttons: Submit and Register -->
                     <div style="text-align: center">
                       <!-- <md-button ng-click="nav.isLogin = false;" class="md-accent md-raised"> Sign Up</md-button> -->
-                      <md-button type="submit"> Sign In </md-button>
-                        <md-button ui-sref="ForgotPassword"> Forgot your Password? <md-button>
-                    </div>
+                      <button type="submit" class="button"> Sign In </button><br/><br/>
+                        <a ui-sref="ForgotPassword"> Forgot your Password? </a>
              </form>
