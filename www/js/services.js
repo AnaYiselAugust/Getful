@@ -112,7 +112,7 @@ angular.module('app.services', [])
       };
 
 //-------- ACCOUNT--------------------------------------------
-      
+
   o.deleteAccount = function(userId){
     var q = $q.defer();
     $http.delete("/api/user/" + userId).then(function(res){
@@ -123,8 +123,8 @@ angular.module('app.services', [])
 
 
 //-------- PROFILE--------------------------------------------
-  
-  o.getUser = function(userId){ // used to get user information on account page and the public profile
+
+  o.getUserInfo = function(userId){ // used to get user information on account page and the public profile
     var q = $q.defer();
     $http.get("http://localhost:3000/api/user/" + userId).then(function(res){
       q.resolve(res);
@@ -132,17 +132,24 @@ angular.module('app.services', [])
     return q.promise;
   };
 
+//----------------UPLOAD IMAGE ---------------------------
+  o.addProfileImage = function(image) {
+		console.log(image);
+		var q = $q.defer();
+		$http.post("", image).success(function(res) {
+			q.resolve(res);
+		});
+		return q.promise;
+	}
+
   o.updateUser = function(userId, user){  // used to update user information on account page or on the public profile
     var q = $q.defer();
-    $http.put("/api/user/" + userId, user).then(function(res){
+    $http.put("http://localhost:3000/api/user/" + userId, user).then(function(res){
       q.resolve(res);
     });
     return q.promise;
   };
-
-
     return o;
-
 })
 
 .factory('Chats', function() {
