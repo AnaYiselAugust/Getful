@@ -25,14 +25,17 @@ body {
 h1 {
 	color: $white !important;
 	text-transform: uppercase;
-
+	font-size: 225% !important;
 }
 h2 {
 	color: $white !important;
+	text-transform: uppercase;
+	font-size: 175% !important;
 }
 h3 {
 	color: $white !important;
-}
+	text-transform: uppercase;
+	font-size: 125% !important;}
 h4 {
 	color: $white !important;
 }
@@ -64,7 +67,7 @@ placeholder {
 	width:90%;
 }
 .top {
-	height:70%;
+	height: 70%;
 	padding-top:100px;
 }
 .bottom {
