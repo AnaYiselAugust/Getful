@@ -3,8 +3,12 @@
 To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file. If you're looking for some default colors, they are there.
 */
+body {
+  color: #939597; }
+
 h1 {
-  color: white !important; }
+  color: white !important;
+  text-transform: uppercase; }
 
 h2 {
   color: white !important; }
@@ -22,11 +26,21 @@ a {
   color: white;
   text-transform: uppercase; }
 
+placeholder {
+  color: red;
+  font-size: 10px; }
+
+.md-input-has-placeholder {
+  color: red; }
+
 .center {
   text-align: center; }
 
 .backdrop {
-  background-color: #f1f1f2; }
+  background-color: #f1f1f2 !important; }
+
+.box {
+  width: 90%; }
 
 .top {
   height: 70%;
@@ -52,10 +66,19 @@ ion-content {
 .button {
   background-color: #ff6138 !important;
   border-color: #ff6138 !important;
+  border: 2px solid;
+  border-radius: 25px;
   color: white !important;
   font-weight: bold;
   text-transform: uppercase;
-  padding: 0px 20px 0px 20px !important; }
+  padding: 0px 20px 0px 20px !important;
+  -webkit-filter: drop-shadow(12px 12px 15px rgba(0, 0, 0, 0.5));
+  filter: url(#drop-shadow);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')"; }
+
+.shrink {
+  line-height: 50%; }
 
 img {
   -webkit-filter: drop-shadow(12px 12px 25px rgba(0, 0, 0, 0.5));
