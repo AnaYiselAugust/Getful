@@ -206,6 +206,21 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
   .state('profile',{
       url: '/profile/:id',
       templateUrl: 'templates/profile.html'
+    })
+
+  .state('profileEs',{
+      url: '/profileEs/:id',
+      templateUrl: 'templates/profileEs.html'
+    })
+
+  .state('editprofile',{
+      url: '/editprofile/:id',
+      templateUrl: 'templates/editprofile.html'
+    })
+
+  .state('editprofileEs',{
+      url: '/editprofileEs/:id',
+      templateUrl: 'templates/editprofileEs.html'
     });
 
   // if none of the above states are matched, use this as the fallback

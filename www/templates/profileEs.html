@@ -1,11 +1,19 @@
 <div ng-controller="ProfileController as vm" layout layout-align="center"> <!--profileEs -->
 <div layout="column" style="width:75%">
+	<br/>
+	<br/>
+
 	<div>
-		<h1>{{ vm.profile.firstName || "first name"}} {{ vm.profile.lastName || "last name"}}</h1>
+		<h3>Bienvenido, {{ vm.profile.firstName || "first name"}} {{ vm.profile.lastName || "last name"}}</h3>
 	</div>
-	<div style="background-color:grey">
-		<img src="{{ vm.profile.profilePic || 'https://www.k-state.edu/hcs/images/anonymous_silhouette.jpg' }}" class="img-responsive"/><br/>
+	<br/>
+	<br/>
+
+	<center>
+	<div>
+		<img src="{{ vm.profile.profilePic || 'https://cdn3.iconfinder.com/data/icons/ballicons-free/128/man.png' }}" style="width: 150px; height:150px;" class="img-responsive"/><br/>
 	</div>
+		<center/>
 	<div layout="row" layout-sm="column" layout-padding>
 		<div flex>
 	  		<span><img src="http://icons.iconarchive.com/icons/uiconstock/socialmedia/512/Email-icon.png" height="20px"/> {{ vm.profile.email || "Dirección de correo electrónico escondido aquí." }}<br/>
@@ -27,7 +35,7 @@
 
 	</div>
 	<div style="text-align:right">
-		<md-button type="button" ui-sref="EditProfile({id: glob.status._id})">Cambiar tu Perfil</md-button>
+		<md-button type="button" ui-sref="editprofileEs({id: glob.status._id})">Cambiar tu Perfil</md-button>
 
 	</div>
 	</div>

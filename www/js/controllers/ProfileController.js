@@ -25,13 +25,13 @@
 	//	$scope.submit();
 		GlobalFactory.updateUser($stateParams.id, vm.profile).then(function(res){
 			vm.profile = res.data; // need this?
-			$state.go("Profile", {id: vm.status._id});
+			$state.go("profile", {id: vm.status._id});
 		});
 	};
 	vm.updateProfileEs = function(){
 		GlobalFactory.updateUser($stateParams.id, vm.profile).then(function(res){
 			vm.profile = res.data; // need this?
-			$state.go("ProfileEs", {id: vm.status._id});
+			$state.go("profileEs", {id: vm.status._id});
 		});
 	};
 
@@ -40,7 +40,7 @@
 	$scope.upload = function (file) {
 	    	vm.loading = true;
 	    	Upload.upload({
-	    		url: '/api/user/uploadPhoto',
+	    		url: 'http://localhost:3000/api/user/uploadPhoto',
 	    		data: {file: file, 'userId': vm.status._id}
 	    	}).then(function (resp) {
 	    		vm.loading = false;
