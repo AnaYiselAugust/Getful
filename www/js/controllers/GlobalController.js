@@ -48,6 +48,12 @@
 			}) ;
 		};
 
+		glob.forgotEs = function() {
+			GlobalFactory.forgot(glob.user).then(function() {
+				$state.go('SignInEs') ;
+			}) ;
+		};
+
 //-----------UPDATE PASSWORD (LIKE EDIT)------------------
 		glob.resetPassword = function(){
 			glob.user.id = $stateParams.id ;
