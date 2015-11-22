@@ -1,5 +1,8 @@
 <div ng-controller="ContactsController as vm" id="contacts" class="container">
-<h1>Add Contact</h1>
+
+<div flex><h1> Add Contacts </h1></div>
+<div style="position:fixed;right:10%"><h1><a ui-sref="tab.Profile"><i class="icon ion-android-happy"></i></a> <a ui-sref="tab.Account"><i class="icon ion-android-more-vertical"></i></a></h1></div>
+</div>
 
 <input type="email" placeholder="Email Address" ng-model="email" />
 <button type="button" ng-click="vm.sendRequest(email)">Send Notification</button>

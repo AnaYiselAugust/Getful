@@ -1,6 +1,9 @@
 <div ng-controller="CirclesController as vm" id="circles" class="container">
   <div ng-repeat="c in vm.circles"> <!-- vm.circles (in plural is for displaying) -->
-    <h2>Add Existing or new Contacts to your <span style="Black">{{c.title}}</span> Circle</h2>
+    <div flex><h1> Add Existing or new Contacts to your</h1></div>
+    <div style="position:fixed;right:10%"><h1><a ui-sref="tab.Profile"><i class="icon ion-android-happy"></i></a> <a ui-sref="tab.Account"><i class="icon ion-android-more-vertical"></i></a></h1></div>
+    </div>
+     <span style="Black">{{c.title}}</span> Circle</h2>
     <h5>You can add <span style="Black">{{c.pieces}}</span> Contacts to your Circle now, If you change your mind you can allways edit.</h5>
   </div>
 

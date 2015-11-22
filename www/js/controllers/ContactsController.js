@@ -66,7 +66,7 @@
 			HomeFactory.addContact(vm.newContact).then(function(res){
 				vm.newContact = {};
 				vm.getContacts();
-				$state.go("Contacts");
+				$state.go("tab.Contacts");
 			});
 		};
 
@@ -82,7 +82,7 @@
 		// Edit Contact
 		vm.editContact = function(contact) {
 				HomeFactory.tempContact = contact;
-				$state.go('EditContact');
+				$state.go('tab.EditContact');
 		};
 
 
@@ -95,7 +95,7 @@
 
 			HomeFactory.saveContact(contact).then(function(res) {
 				vm.getContacts();
-				$state.go("Contacts");
+				$state.go("tab.Contacts");
 			});
 		};
  /* -------------------- Send Friend Request ----------------------------------------------*/
