@@ -205,6 +205,22 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
         }
       }
     })
+    .state('tab.AddContacts', {
+    url: '/addcontacts',
+    views: {
+      'addcontacts': {
+        templateUrl: 'templates/addcontacts.html',
+      }
+    }
+  })
+    .state('tabEs.AddContactsEs', {
+    url: '/addcontactsES',
+    views: {
+      'addcontactsEs': {
+        templateUrl: 'templates/addcontactsEs.html',
+      }
+    }
+  })
 //---------------- REQUESTS TAB STATES ---------------
   .state('tab.Requests', {
     url: '/requests',
@@ -222,19 +238,36 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       }
     }
   })
+  .state('tab.AddRequests', {
+  url: '/addrequests',
+  views: {
+    'addrequests': {
+      templateUrl: 'templates/addrequests.html',
+    }
+  }
+})
+  .state('tabEs.AddRequestsEs', {
+  url: '/addrequestsEs',
+  views: {
+    'addrequestsEs': {
+      templateUrl: 'templates/addrequestsEs.html',
+    }
+  }
+  })
 
-//---------------- TAB2 STATES ---------------
-  // setup an abstract state for the tabs directive
-    .state('tab2', {
-    url: '/tab2',
-    abstract: true,
-    templateUrl: 'templates/tabs2.html'
-  })
-   .state('tab2Es', {
-    url: '/tab2Es',
-    abstract: true,
-    templateUrl: 'templates/tabs2Es.html'
-  })
+
+// //---------------- TAB2 STATES ---------------
+//   // setup an abstract state for the tabs directive
+//     .state('tab2', {
+//     url: '/tab2',
+//     abstract: true,
+//     templateUrl: 'templates/tabs2.html'
+//   })
+//    .state('tab2Es', {
+//     url: '/tab2Es',
+//     abstract: true,
+//     templateUrl: 'templates/tabs2Es.html'
+//   })
 
 //---------------- PROFILE STATES ---------------
 

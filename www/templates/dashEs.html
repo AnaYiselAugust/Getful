@@ -6,40 +6,58 @@
   </div>
 
 
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Home</div>
-      <div class="item item-body">
-        <div>
-          <a ui-sref="Home">Home</a>
-        </div>
-      </div>
-    </div>
+  <!-- <i type="button" class="icon ion-ios-plus add" style="z-index: 9999; position:fixed; bottom:10%; right:5%;font-size:45px;color:orange;"></i> -->
 
-        <div class="list card">
-      <div class="item item-divider">Profile</div>
-      <div class="item item-body">
-        <div>
-          <a ui-sref="profile">Edit Profile</a>
-        </div>
+  <ion-content class="padding z">
+
+
+      <div ng-controller="NotifyController as vm" id="dashboard" class="container">
+          <div>
+                          <h3>{{glob.status.firstName}} {{glob.status.lastName}}</h3>
+                          <hr>
+          </div>
+          <div layout>
+            <div flex="25">
+                <img src="http://ratter.com/images/default/userpic-original.png" class="profilePic" alt="profile pic" />
+            </div>
+
+            <div flex layout-align="space-between center">
+                <div class="skill">Diseñar</div>
+                <div class="skill">Cocinar</div>
+                <div class="skill">Dance</div>
+                <div class="skill">fdsffdfdsfdsfdsds</div>
+                <div class="skill">fdssdfds df s d fds</div>
+                <div class="skill">Design</div>
+                <!-- <div class="skill" ng-repeat="value in glob.status">{{ value }}</div> -->
+                <br/>
+            </div>
+          </div>
+
+            <h3>Mis Círculos Recientes </h3>
+            <hr>
+            <div layout="row" layout-align="center center" class="padAllCircles">
+                <div flex="33" ><a href=""><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></a></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
+            </div>
+            <div layout="row" layout-align="center center">
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
+            </div>
+            <div layout="row" layout-align="center center">
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
+            </div>
+            <div layout="row" layout-align="center center">
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
+            </div>
+
       </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Recent Circles</div>
-      <div class="item item-body">
-        <div>
-          Babysitting
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">My Requests</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> requests.
-        </div>
-      </div>
-    </div>
+
 
   </ion-content>
 </ion-view>

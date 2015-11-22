@@ -1,17 +1,17 @@
 <ion-view view-title="Circle">
 
-<div layout style="width:100%">
-  <div flex="auto" class><h1> Círculos </h1></div>
-  <div flex="grow"><h1><a ui-sref="tabEs.ProfileEs"><i class="icon ion-android-happy"></i></a> <a ui-sref="tabEs.AccountEs"><i class="icon ion-android-more-vertical"></i></a></h1></div>
-</div>
+	<div class="header">
+	  <h1> Círculos </h1>
+	</div>
 
   <ion-content class="padding">
 
-		<div ng-controller="CirclesController as vm" id="circles" class="container" >
+
+    <div ng-controller="CirclesController as vm" id="circles" class="container" >
   	<h1>Ver Círculos</h1>
 
   	<div class="text-left">
-  		<button ui-sref="tabEs.CreateCircleEs" class="btn btn-info">Crear Círculo </button>
+      <button ui-sref='tabEs.CreateCircleEs' class="button">Crear Círculos</button>
   	</div>
   	<hr>
 
@@ -23,5 +23,6 @@
   	</div>
   </div>
 
-<ion-content/>
-<ion-view/>
+
+  </ion-content>
+</ion-view>
