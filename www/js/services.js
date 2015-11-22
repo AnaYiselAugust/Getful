@@ -144,7 +144,7 @@ angular.module('app.services', [])
 
   o.updateUser = function(userId, user){  // used to update user information on account page or on the public profile
     var q = $q.defer();
-    $http.("http://localhost:3000/api/user/" + userId, user).then(function(res){
+    $http.put("http://localhost:3000/api/user/" + userId, user).then(function(res){
       q.resolve(res);
     });
     return q.promise;
