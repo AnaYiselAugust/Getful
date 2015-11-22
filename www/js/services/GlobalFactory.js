@@ -5,6 +5,8 @@
 
 	function GlobalFactory($http, $q) {
 		var o = {};
+		o.setUser = setUser;
+		o.setToken = setToken;
 		o.status = {};
 		if(getToken()){
 			setUser();
@@ -163,6 +165,64 @@
 		});
 		return q.promise;
 	}
+
+	//------------------Friend Requests -------------------------------------
+
+	// Get Friends
+	o.getFriends = function() {
+		var q = $q.defer();
+		var parcel = {
+			user: o.status.username
+		}
+		$http.post("http://localhost:3000/api/user/getFriends", parcel).then(function(res){
+			q.resolve(res);
+		});
+		return q.promise;
+	}
+
+	// Accept Request
+	o.acceptRequest = function(request) {
+		var q = $q.defer();
+		var parcel = {
+			user: o.status.username,
+			acccepted: request
+		}
+		o.status.notifications.splice(o.status.notifications.indexOf(request), 1);
+		$http.post("http://localhost:3000/api/user/acceptRequest", parcel).then(function(res){
+			q.resolve(res);
+		});
+		return q.promise;
+	}
+
+	// Decline Request
+	o.declineRequest = function(request) {
+		o.status.notifications.splice(o.status.notifications.indexOf(request), 1);
+		o.status.notifications.splice(o.status.notifications.indexOf(request), 1);
+		var q = $q.defer();
+		var parcel = {
+			user: o.status.username,
+			declined: request
+		}
+		$http.post("http://localhost:3000/api/user/declineRequest", parcel).then(function(res){
+			q.resolve(res);
+		});
+		return q.promise;
+	}
+
+
+	// Send Referral
+	o.sendReferral = function (referral, target){
+		var q = $q.defer();
+		var parcel = {
+			referral: referral,
+			sendingTo: target
+		}
+		$http.post("http://localhost:3000/api/user/referral", parcel).then(function(res){
+			q.resolve(res);
+		});
+		return q.promise;
+	};
+
 
 
 		return o;

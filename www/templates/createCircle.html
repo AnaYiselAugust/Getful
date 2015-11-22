@@ -1,26 +1,117 @@
-<div ng-controller="CirclesController as vm" id="circles" class="container">
-<h1>Create Circles</h1>
-      <!-- ________This Input Is to Add a Circle(choose pieces) and title _____________ -->
-<form ng-submit="vm.createCircle()">
-     <md-input-container>
-       <label> What is the Title of your Circle? </label>
-       <input ng-model="vm.circle.title" type="text" ng-required="true">
-     </md-input-container>
-     <md-input-container>
-        <label>How many pieces do you want in your Contacts Circle?</label>
-        <md-select ng-model="vm.circle.pieces" ng-required="true">
-            <md-option value='2'>2</md-option>
-            <md-option value='4'>4</md-option>
-            <md-option value='6'>6</md-option>
-            <md-option value='8'>8</md-option>
-            <md-option value='10'>10</md-option>
-            <md-option value='14'>14</md-option>
-            <md-option value='18'>18</md-option>
-            <md-option value='24'>24</md-option>
-            <md-option value='30'>30</md-option>
-       </md-select>
-      </md-input-container>
-  <button type="submit" class="btn btn-success">Next Step, add people!</button>
+<ion-view view-title="Circle">
+
+<div layout style="width:100%">
+  <div flex="auto" class><h1> Circle </h1></div>
+  <div flex="grow"><h1><a ui-sref="tabEs.ProfileEs"><i class="icon ion-android-happy"></i></a> <a ui-sref="tabEs.AccountEs"><i class="icon ion-android-more-vertical"></i></a></h1></div>
+</div>
+
+  <ion-content class="padding">
+
+<div ng-controller="CirclesController as vm" id="circles" class="container" ng-init="creatingCircle = false; menuOpen = false; vm.creating = true;">
+
+	<!-- <h1>Your Circles</h1> -->
+
+
+
+	<!-- Buttons -->
+
+	<!-- <div class="circleOptions" ng-show="creatingCircle === false">
+		<button ng-click="creatingCircle = true;" class="btn btn-info">Edit Circle </button>
+		<button ng-click="circle = 0; creatingCircle = false;" class="btn btn-danger">Delete Circle </button>
+	</div> -->
+
+	<div class="right" ng-repeat="c in vm.pieChar">
+		<pie-chart class="PIE" data="{{c.chartData}}" title="{{c.chartTitle}}" width="{{chartWidth}}" height="{{chartHeight}}" select="selectRow(selectedRowIndex)"></pie-chart>
+	</div>
+
+
+
+
+	<!-- <div class="circleOptions" ng-show="creatingCircle === true">
+		<input type="text" ng-model="vm.newCircle.name" placeholder="Circle Name">
+		<input type="text" min="1" max="20" value="1" placeholder="Number Of Members" ng-model="vm.newCircle.slices">
+		<button ng-click="circle= 1; creatingCircle = false;" class="btn btn-success">MakeChart </button>
+		<button ng-click="circle= 0; creatingCircle = false;" class="btn btn-danger">Cancel </button>
+	</div>
+  <hr>
+
+  <br>
+	<
+
+  <div id="createContainer" ng-init="circle = 0">
+    <div class="circle" ng-if="circle === 1" style="width: 80vw; height: 80vw;">
+
+    </div>
+  </div> -->
+
+	<h1>Create Circle</h1>
+
+
+  <form ng-submit="creatingCircle = false; vm.saveCircle(chartData)">
+
+	<div class="circleOptions">
+		<div class="text-left">
+				<button type="submit" class="btn btn-info" ng-disabled="!chartTitle || chartData.length === 0">Save Circle </button>
+				<button ui-sref="tab.DisplayCircle" class="btn btn-danger">Cancel</button>
+		</div>
+	</div>
+	<hr>
+
+	<!-- Circle & Options -->
+		<input ng-model="chartTitle" placeholder="Circle Name" class="title">
+		<br>
+		<div draggable="true" ng-repeat="row in chartData" ng-class="rowClass($index)" style="display: inline-block; margin: 1vh;">
+				<div>
+					<div class="circle" ng-click="deleteRow($index)" style="width: 2vw; height: 2vw; border: solid 2px white;">
+						<p style="font-size: 1.5vw; color: #fff;">&times;</p>
+					</div>
+						<h5>{{ row.firstName }} {{ row.lastName }}</h5>
+				</div>
+		</div>
+		<div class="col-xs-12" style="border: solid 2px #fff; margin-top: 2vh; padding: 2vh">
+			<div class="text-center">
+				<h3>{{ chartTitle }}</h3>
+			</div>
+			<div class="text-center" ng-show="chartData.length === 0">
+				<br>
+				<h5>Please Add Contacts To Create A Circle</h5>
+			</div>
+			<pie-chart data="chartData" title="{{chartTitle}}" ng-show="chartData.length > 0" width="{{chartWidth}}" height="{{chartHeight}}" select="selectRow(selectedRowIndex)" id="pieChart"></pie-chart>
+			<br>
+			<br>
+		</div>
+
 </form>
 
+
+	<!-- Sidebar -->
+	<div id="addToCircleBar">
+		<div id="circleBarContent" ng-class="{menuOpen: menuOpen}" onmouseover="document.body.style.overflow='hidden';" onmouseout="document.body.style.overflow='auto';">
+			<div class="content">
+				<input type="text" placeholder="Search" class="small" ng-model="searchCircles" style="margin: 3vh auto; padding: 2em; font-size: 1.1em;">
+				<hr style="width: 80%;">
+				<div class="row text-left circlesContact" ng-repeat="contact in vm.contacts | filter:searchCircles" ng-click="$parent.menuOpen = false; addRow(contact);" style="padding-left: 2vw;">
+					<div class="circle greyscale inline" ng-class="{greyscale: hover}"  ng-style="{'background-image': 'url(' + contact.profilePic + ')'}" style="background-size: contain; background-repeat: no-repeat; height: 5vw; width: 5vw; margin-left: 2vw;"></div>
+					<p class="inline" style="vertical-align: 5vh; margin-left: 1vw; font-size: 1.2em;">{{ contact.firstName }}  {{ contact.lastName }}</p>
+				</div>
+			</div>
+			<br>
+			<button type="button" class="btn btn-danger" ng-click="menuOpen = false">Close</button>
+		</div>
+		<div id="circleBarMenuText" ng-show="menuOpen === false" ng-click="menuOpen = true">
+			<h3>C</h3>
+			<h3>O</h3>
+			<h3>N</h3>
+			<h3>T</h3>
+			<h3>A</h3>
+			<h3>C</h3>
+			<h3>T</h3>
+			<h3>S</h3>
+		</div>
+	</div>
+
+
 </div>
+
+</ion-content>
+</ion-view>

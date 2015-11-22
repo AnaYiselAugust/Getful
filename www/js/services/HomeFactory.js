@@ -18,7 +18,7 @@
 				sendingTo: email,
 				sendingFrom: GlobalFactory.status.username
 			}
-			$http.post('/api/user/friendRequest', friendRequest).then(function(res) {
+			$http.post('http://localhost:3000/api/user/friendRequest', friendRequest).then(function(res) {
 				q.resolve();
 			});
 			return q.promise;
@@ -32,7 +32,7 @@
 			var parcel = {
 				user: GlobalFactory.status.username
 			}
-			$http.post('/contacts/get', parcel).then(function(res) {
+			$http.post('http://localhost:3000/contacts/get', parcel).then(function(res) {
 				o.contacts = res.data;
 				GlobalFactory.getFriends().then(function(res){
 					for(var i = 0; i < res.data.length; i++) {
@@ -48,7 +48,7 @@
 		/* Add Contact */
 		o.addContact = function(contact) {
 			var q = $q.defer();
-			$http.post('/contacts', contact).then(function(res) {
+			$http.post('http://localhost:3000/contacts', contact).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -57,7 +57,7 @@
 		/* Delete Contact */
 		o.deleteContact = function(id) {
 			var q = $q.defer();
-			$http.delete('/contacts/' + id).then(function(res) {
+			$http.delete('http://localhost:3000/contacts/' + id).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -66,7 +66,7 @@
 		/* Save Contact */
 		o.saveContact = function(contact) {
 			var q = $q.defer();
-			$http.put('/contacts', contact).then(function(res) {
+			$http.put('http://localhost:3000/contacts', contact).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -89,7 +89,7 @@
 			var parcel = {
 				user: GlobalFactory.status.username
 			}
-			$http.post('/circles/get', parcel).then(function(res) {
+			$http.post('http://localhost:3000/circles/get', parcel).then(function(res) {
 				o.circles = res.data;
 				q.resolve(res.data);
 			});
@@ -104,7 +104,7 @@
 				creator: GlobalFactory.status.username
 			}
 			var q = $q.defer();
-			$http.post('/circles', parcel).then(function(res) {
+			$http.post('http://localhost:3000/circles', parcel).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -113,7 +113,7 @@
 		/* Delete Circle */
 		o.deleteCircle = function(id) {
 			var q = $q.defer();
-			$http.delete('/circles/' + id).then(function(res) {
+			$http.delete('http://localhost:3000/circles/' + id).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -128,7 +128,7 @@
 				creator: GlobalFactory.status.username
 			}
 			var q = $q.defer();
-			$http.put('/circles', parcel).then(function(res) {
+			$http.put('http://localhost:3000/circles', parcel).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -140,7 +140,7 @@
 		o.getRequests = function(email) {
 			var q = $q.defer();
 			var x = {email: email};
-			$http.patch('/requests', x).then(function(res) {
+			$http.patch('http://localhost:3000/requests', x).then(function(res) {
 				o.requests = res.data;
 				q.resolve(res.data);
 			});
@@ -151,7 +151,7 @@
 		o.addRequest = function(request) {
 			request.email = GlobalFactory.status.username;
 			var q = $q.defer();
-			$http.post('/requests', request).then(function(res) {
+			$http.post('http://localhost:3000/requests', request).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -160,7 +160,7 @@
 		/* Delete Request */
 		o.deleteRequest = function(id) {
 			var q = $q.defer();
-			$http.delete('/requests/' + id).then(function(res) {
+			$http.delete('http://localhost:3000/requests/' + id).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -169,7 +169,7 @@
 		/* Save Request */
 		o.saveRequest = function(request) {
 			var q = $q.defer();
-			$http.put('/requests', request).then(function(res) {
+			$http.put('http://localhost:3000/requests', request).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
