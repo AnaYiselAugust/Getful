@@ -8,7 +8,7 @@
 
 
 
-  <i type="button" class="icon ion-ios-plus add" style="z-index: 9999; position:fixed; bottom:10%; right:5%;font-size:45px;color:orange;"></i>
+  <!-- <i type="button" class="icon ion-ios-plus add" style="z-index: 9999; position:fixed; bottom:10%; right:5%;font-size:45px;color:orange;"></i> -->
 
   <ion-content class="padding z">
 
@@ -21,22 +21,23 @@
                 <img src="http://ratter.com/images/default/userpic-original.png" class="profilePic" alt="profile pic" />
             </div>
 
-            <div flex>
-                <h2>{{glob.status.firstName}} {{glob.status.lastName}}</h2>
+            <div flex layout-align="space-between center">
+                <h3>{{glob.status.firstName}} {{glob.status.lastName}}</h3>
+                <hr>
 
-                                <div class="skill">fdsfds</div>
+                <div class="skill">Design</div>
                 <div class="skill">fdsfds</div>
-                <div class="skill">fdsfds</div>
+                <div class="skill">Dance</div>
                 <div class="skill">fdsffdfdsfdsfdsds</div>
                 <div class="skill">fdssdfds df s d fds</div>
-                <p>SKILL SKILL SKILL SKILL</p>
-                <div class="skill" ng-repeat="(key,value) in glob.status"><strong>{{ key }}</strong>: {{ value }}</div>
+                <div class="skill" ng-repeat="value in glob.status">{{ value }}</div>
+                <br/>
             </div>
           </div>
 
 
 
-            <h4>Recent Circles </h4>
+            <h3>Recent Circles </h3>
             <hr>
             <div class="text-left" style="position: relative; padding: 1em;">
               <div class="circle"></div>
