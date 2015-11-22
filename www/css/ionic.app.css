@@ -4,7 +4,8 @@ To customize the look and feel of Ionic, you can override the variables
 in ionic's _variables.scss file. If you're looking for some default colors, they are there.
 */
 body {
-  color: #939597; }
+  color: #939597;
+  z-index: -1 !important; }
 
 h1 {
   color: white !important;
@@ -37,6 +38,51 @@ placeholder {
 
 .md-input-has-placeholder {
   color: red; }
+
+.add {
+  position: absolute;
+  position: fixed;
+  left: 20px;
+  top: 80px;
+  font-size: -webkit-xxx-large !important; }
+
+#toplayer {
+  z-index: 9999;
+  position: fixed;
+  top: 5%;
+  left: 2%; }
+
+[nav-view-transition="ios"] [nav-view="active"] {
+  z-index: -1 !important; }
+
+.scroll-content {
+  z-index: -1 !important; }
+
+.ionic-scroll .has-tabs {
+  z-index: -1 !important; }
+
+.tabs {
+  background-color: #00a388; }
+
+.tabs-striped .tabs {
+  background-color: rgba(0, 109, 91, 0) !important;
+  border-bottom: 1px solid #006d5b !important;
+  color: #e7e8e8 !important; }
+
+.tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
+  border-color: #00a388 !important;
+  color: #f2b132 !important; }
+
+.tab-item {
+  background-color: #00a388; }
+
+.tabs-top.tabs-striped .tab-item {
+  background: none; }
+
+.title {
+  height: 44px;
+  width: 100%;
+  position: fixed; }
 
 .center {
   text-align: center; }
@@ -82,6 +128,22 @@ ion-content {
   -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')"; }
 
+.skill {
+  background-color: #f2b132 !important;
+  border-color: #f2b132 !important;
+  border: 0px solid;
+  border-radius: 25px;
+  margin: 2px;
+  display: inline-block;
+  color: white !important;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0px 10px 0px 10px !important;
+  -webkit-filter: drop-shadow(12px 12px 15px rgba(0, 0, 0, 0.5));
+  filter: url(#drop-shadow);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+  filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')"; }
+
 .shrink {
   line-height: 50%; }
 
@@ -93,13 +155,21 @@ img {
 
 .circle {
   display: inline-block;
-  padding: 4em 0 0 0;
+  padding: 0 0 0 0 !important;
   text-align: center;
-  width: 15em;
-  height: 15em;
   margin: 2.5%;
   color: #FFFF9D;
-  border-radius: 50%;
+  border-radius: 100%;
+  background: rgba(255, 250, 0, 0.1); }
+
+.profilePic {
+  display: inline-block;
+  padding: 0px !important;
+  text-align: center;
+  width: 90%;
+  margin: 0%;
+  color: #FFFF9D;
+  border-radius: 100%;
   background: rgba(0, 0, 0, 0.1); }
 
 /*!
@@ -9175,17 +9245,3 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
-
-/* DIDNT WORK AS EXPECTED
-body {
-	background-image: $bg;
-}
-
-.view-container {
-	background-image: $bg;
-}
-
-ion-nav-view {
-	background-image: $bg;
-}
-*/

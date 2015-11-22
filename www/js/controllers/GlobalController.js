@@ -37,7 +37,7 @@
 
 		glob.signInEs = function() {
 			GlobalFactory.signIn(glob.user).then(function(){
-				$state.go('tab.DashEs', {id: glob.user._id});
+				$state.go('tabEs.DashEs', {id: glob.user._id});
 			});
 		};
 
