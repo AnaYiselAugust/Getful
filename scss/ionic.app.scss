@@ -133,7 +133,9 @@ placeholder {
 	padding-bottom:75px;
 
 }
-
+.scroll {
+	margin-bottom:100px !important;
+}
 .pane {
 	background-color: $teal;
 	background-image: $bg;
@@ -145,6 +147,7 @@ body {
 
 ion-content {
 	background-color: $teal;
+	// background-color: $lightgrey;
 	background-image: $bg;
 }
 
@@ -197,18 +200,30 @@ img {
 	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
 
+
+// CIRCLES
 .circle {
   display: inline-block;
   padding: 0 0 0 0 !important;
   text-align: center;
-  height:15px;
-  width:15px;
   margin: 2.5%;
   color: #FFFF9D;
   border-radius: 100%;
-  background: rgba(255,250,0,.1);
+  background: rgba($mint,1);
 }
 
+.dashCircle {
+
+	width:100px;
+	height:100px;
+}
+
+padAllCircles {
+	margin-botom: 15px !important;
+}
+
+
+// PROFILE PIC
 .profilePic {
   display: inline-block;
   padding: 0px !important;

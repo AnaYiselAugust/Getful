@@ -102,6 +102,9 @@ placeholder {
   vertical-align: baseline;
   padding-bottom: 75px; }
 
+.scroll {
+  margin-bottom: 100px !important; }
+
 .pane {
   background-color: #00a388;
   background-image: url("/assets/bg-flipped.jpg");
@@ -162,12 +165,17 @@ img {
   display: inline-block;
   padding: 0 0 0 0 !important;
   text-align: center;
-  height: 15px;
-  width: 15px;
   margin: 2.5%;
   color: #FFFF9D;
   border-radius: 100%;
-  background: rgba(255, 250, 0, 0.1); }
+  background: #79bd8f; }
+
+.dashCircle {
+  width: 100px;
+  height: 100px; }
+
+padAllCircles {
+  margin-botom: 15px !important; }
 
 .profilePic {
   display: inline-block;
