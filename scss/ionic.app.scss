@@ -21,6 +21,7 @@ $bg: url('/assets/bg-flipped.jpg');
 // TEXT
 body {
 	color: $medgrey;
+	z-index: -1 !important;
 }
 h1 {
 	color: $white !important;
@@ -55,8 +56,64 @@ placeholder {
 }
 
 
+// LAYERS
+
+.add {
+	position: absolute;
+	position:fixed;
+	left: 20px;
+	top: 80px;
+	font-size: -webkit-xxx-large !important;
+}
+#toplayer {
+	z-index: 9999; 
+	position:fixed; 
+	top:5%; 
+	left:2%;
+}
+
+
+[nav-view-transition="ios"] [nav-view="active"] {
+	z-index: -1 !important;
+}
+
+.scroll-content {
+    z-index: -1 !important;
+   }
+
+   .ionic-scroll .has-tabs {
+    z-index: -1 !important;
+   }
+
+// BACKGROUNDS
+.tabs {
+	background-color: $teal;
+
+}
+.tabs-striped .tabs {
+	background-color: rgba(0,109,91,.0) !important;
+	border-bottom: 1px solid rgba(0,109,91,1) !important;
+	color: rgb(231,232,232) !important;
+}
+.tabs-striped .tab-item.tab-item-active, .tabs-striped .tab-item.active, .tabs-striped .tab-item.activated {
+	border-color: $teal !important;
+	color: $yelloworange !important;
+}
+
+.tab-item {
+	background-color: $teal;
+}
+
+.tabs-top.tabs-striped .tab-item {
+    background: none;
+    }
 
 // LAYOUT
+.title {
+	height:44px;
+	width:100%;
+	position: fixed;
+}
 .center {
 	text-align: center;
 }
@@ -105,6 +162,26 @@ ion-content {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
+
+.skill {
+	background-color: $yelloworange !important;
+	border-color: $yelloworange !important;
+	border: 0px solid;
+	border-radius: 25px;
+	margin: 2px;
+	display: inline-block;
+	color: $white !important;
+	font-weight: bold;
+	text-transform: uppercase;
+//	text-align: justify;
+	padding: 0px 10px 0px 10px !important;
+	-webkit-filter: drop-shadow(12px 12px 15px rgba(0,0,0,0.5));
+	filter: url(#drop-shadow);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
+
+
 .shrink {
 	line-height:50%;
 }
@@ -117,35 +194,30 @@ img {
 
 .circle {
   display: inline-block;
-  padding: 4em 0 0 0;
+  padding: 0 0 0 0 !important;
   text-align: center;
-  width: 15em;
-  height: 15em;
   margin: 2.5%;
   color: #FFFF9D;
-  border-radius: 50%;
+  border-radius: 100%;
+  background: rgba(255,250,0,.1);
+}
+
+.profilePic {
+  display: inline-block;
+  padding: 0px !important;
+  text-align: center;
+  width: 90%;
+  margin: 0%;
+  color: #FFFF9D;
+  border-radius: 100%;
   background: rgba(0,0,0,.1);
 }
+
+
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
-
-
-
-/* DIDNT WORK AS EXPECTED
-body {
-	background-image: $bg;
-}
-
-.view-container {
-	background-image: $bg;
-}
-
-ion-nav-view {
-	background-image: $bg;
-}
-*/
 

@@ -1,11 +1,62 @@
 <ion-view view-title="Dashboard">
-  <div layout layout-align="right">
-    <div flex flex-offset="60">
-    <i class="icon ion-android-happy"></i><i class="icon ion-android-more-vertical"></i>
-    </div>
-  </div>
 
-  <ion-content class="padding">
+<div layout style="width:100%">
+  <div flex><h1> Dash </h1></div>
+  <div style="position:fixed;right:10%"><h1><a ui-sref="tabEs.ProfileEs"><i class="icon ion-android-happy"></i></a> <a ui-sref="tabEs.AccountEs"><i class="icon ion-android-more-vertical"></i></a></h1></div>
+</div>
+
+
+
+
+  <i type="button" class="icon ion-ios-plus add" style="z-index: 9999; position:fixed; bottom:10%; right:5%;font-size:45px;color:orange;"></i>
+
+  <ion-content class="padding z">
+
+
+
+
+      <div ng-controller="NotifyController as vm" id="dashboard" class="container">
+          <div layout>
+            <div flex="25">
+                <img src="http://ratter.com/images/default/userpic-original.png" class="profilePic" alt="profile pic" />
+            </div>
+
+            <div flex>
+                <h2>{{glob.status.firstName}} {{glob.status.lastName}}</h2>
+
+                                <div class="skill">fdsfds</div>
+                <div class="skill">fdsfds</div>
+                <div class="skill">fdsfds</div>
+                <div class="skill">fdsffdfdsfdsfdsds</div>
+                <div class="skill">fdssdfds df s d fds</div>
+                <p>SKILL SKILL SKILL SKILL</p>
+                <div class="skill" ng-repeat="(key,value) in glob.status"><strong>{{ key }}</strong>: {{ value }}</div>
+            </div>
+          </div>
+
+
+
+            <h4>Recent Circles </h4>
+            <hr>
+            <div class="text-left" style="position: relative; padding: 1em;">
+              <div class="circle"></div>
+              <p class="inline" style="position: absolute; top: 35%; margin-left: 2%">Family <span class="small" style="color: #ffff9d" >(<span style="color: white;">11</span> Contacts)</span></p>
+            </div>
+            <div class="text-left" style="position: relative; padding: 1em;">
+              <div class="circle"></div>
+              <p class="inline" style="position: absolute; top: 35%; margin-left: 2%">Car Repair <span class="small" style="color: #ffff9d" >(<span style="color: white;">4</span> Contacts)</span></p>
+            </div>
+            <div class="text-left" style="position: relative; padding: 1em;">
+              <div class="circle"></div>
+              <p class="inline" style="position: absolute; top: 35%; margin-left: 2%">Sales Reps <span class="small" style="color: #ffff9d" >(<span style="color: white;">7</span> Contacts)</span></p>
+            </div>
+        </div>
+      </div>
+
+
+
+
+
     <div class="list card">
       <div class="item item-divider">Homie!</div>
       <div class="item item-body">
@@ -15,30 +66,6 @@
       </div>
     </div>
 
-        <div class="list card">
-      <div class="item item-divider">Profile</div>
-      <div class="item item-body">
-        <div>
-          <a ui-sref="profile">Edit Profile</a>
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Recent Circles</div>
-      <div class="item item-body">
-        <div>
-          Babysitting
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">My Requests</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> requests.
-        </div>
-      </div>
-    </div>
 
   </ion-content>
 </ion-view>

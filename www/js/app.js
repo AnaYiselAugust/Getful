@@ -109,121 +109,176 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
   .state('tab.Dash', {
     url: '/dash',
     views: {
-      'tab-dash': {
+      'dash': {
         templateUrl: 'templates/dash.html',
       }
     }
   })
-    .state('tab.DashEs', {
+    .state('tabEs.DashEs', {
     url: '/dashEs',
     views: {
-      'tab-dashEs': {
+      'dashEs': {
         templateUrl: 'templates/dashEs.html',
       }
     }
   })
 
 //---------------- CIRCLES TAB STATES ---------------
-  .state('tab.Circles', {
-      url: '/circles',
-      views: {
-        'tab-circles': {
-          templateUrl: 'templates/circles.html',
-        }
-      }
-    })
-    .state('tab.CirclesEs', {
-      url: '/circulos',
-      views: {
-        'tab-circlesEs': {
-          templateUrl: 'templates/circlesEs.html',
-        }
-      }
-    })
     .state('tab.DisplayCircle',{
       url: '/displaycircle',
-      templateUrl: 'templates/displayCircle.html'
+      views: {
+        'displayCircle': {
+          templateUrl: 'templates/displayCircle.html'
+        }
+      }
     })
-    .state('tab.DisplayCircleEs',{
+    .state('tabEs.DisplayCircleEs',{
       url: '/displaycircleEs',
-      templateUrl: 'templates/displayCircleEs.html'
+      views: {
+        'displaycircleEs': {
+          templateUrl: 'templates/displayCircleEs.html'
+        }
+      }
     })
     .state('tab.CreateCircle',{
       url: '/createcircle',
-      templateUrl: 'templates/createCircle.html'
+      views: {
+        'createCircle': {
+          templateUrl: 'templates/createCircle.html'
+        }
+      }
     })
-    .state('tab.CreateCircleEs',{
+    .state('tabEs.CreateCircleEs',{
       url: '/createcircleEs',
-      templateUrl: 'templates/createCircleEs.html'
+      views: {
+        'createCircleEs': {
+          templateUrl: 'templates/createCircleEs.html'
+        }
+      }
     })
     .state('tab.AddContactCircle',{
       url: '/addcontactcircle',
-      templateUrl: 'templates/addContactCircle.html'
+      views: {
+        'addContactCircle': {
+          templateUrl: 'templates/addContactCircle.html'
+        }
+      }
     })
-    .state('tab.AddContactCircleEs',{
+    .state('tabEs.AddContactCircleEs',{
       url: '/addcontactcircleEs',
-      templateUrl: 'templates/addContactCircleEs.html'
+      views: {
+        'addContactCircleEs': {
+          templateUrl: 'templates/addContactCircleEs.html'
+        }
+      }
     })
     .state('tab.EditCircle',{
       url: '/editcircle',
-      templateUrl: 'templates/editCircle.html'
+      views: {
+        'editCircle': {
+          templateUrl: 'templates/editCircle.html'
+        }
+      }
     })
-    .state('tab.EditCircleEs',{
+    .state('tabEs.EditCircleEs',{
       url: '/editcircleEs',
-      templateUrl: 'templates/editCircleEs.html'
+      views: {
+        'editCircleEs': {
+          templateUrl: 'templates/editCircleEs.html'
+        }
+      }
     })
 //---------------- CONTACTS TAB STATES ---------------
-      .state('tab.contacts', {
+      .state('tab.Contacts', {
       url: '/contacts',
       views: {
-        'tab-contacts': {
+        'contacts': {
           templateUrl: 'templates/contacts.html',
-          controller: 'ContactsCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+      .state('tabEs.ContactsEs', {
+      url: '/contactsES',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'contactsEs': {
+          templateUrl: 'templates/contactsEs.html',
         }
       }
     })
-
 //---------------- REQUESTS TAB STATES ---------------
-  .state('tab.requests', {
+  .state('tab.Requests', {
     url: '/requests',
     views: {
-      'tab-requests': {
+      'requests': {
         templateUrl: 'templates/requests.html',
-        controller: 'RequestsCtrl'
+      }
+    }
+  })
+    .state('tabEs.RequestsEs', {
+    url: '/requestsEs',
+    views: {
+      'requestsEs': {
+        templateUrl: 'templates/requestsEs.html',
+      }
+    }
+  })
+//---------------- PROFILE STATES ---------------
+
+
+
+    .state('tab.Profile', {
+    url: '/profile',
+    views: {
+      'profile': {
+        templateUrl: 'templates/profile.html',
+      }
+    }
+  })
+      .state('tabEs.ProfileEs', {
+    url: '/profileEs',
+    views: {
+      'profileEs': {
+        templateUrl: 'templates/profileEs.html',
       }
     }
   })
 
-  .state('profile',{
-      url: '/profile/:id',
-      templateUrl: 'templates/profile.html'
-    })
+    .state('tab.EditProfile', {
+    url: '/editProfile/:id',
+    views: {
+      'editProfile': {
+        templateUrl: 'templates/editProfile.html',
+      }
+    }
+  })
+    .state('tabEs.EditProfileEs', {
+    url: '/editProfileEs/:id',
+    views: {
+      'editProfileEs': {
+        templateUrl: 'templates/editProfileEs.html',
+      }
+    }
+  })
 
-  .state('profileEs',{
-      url: '/profileEs/:id',
-      templateUrl: 'templates/profileEs.html'
-    })
+//---------------- ACCOUNT STATES ---------------
 
-  .state('editprofile',{
-      url: '/editprofile/:id',
-      templateUrl: 'templates/editprofile.html'
-    })
-
-  .state('editprofileEs',{
-      url: '/editprofileEs/:id',
-      templateUrl: 'templates/editprofileEs.html'
-    });
-
-  // if none of the above states are matched, use this as the fallback
+    .state('tab.Account', {
+    url: '/account',
+    views: {
+      'account': {
+        templateUrl: 'templates/account.html',
+      }
+    }
+  })
+      .state('tabEs.AccountEs', {
+    url: '/accountEs',
+    views: {
+      'accountEs': {
+        templateUrl: 'templates/accountEs.html',
+      }
+    }
+  })
+//---------------- OTHERWISE STATES ---------------
   $urlRouterProvider.otherwise('/');
 
 });

@@ -1,18 +1,28 @@
-<div ng-controller="CirclesController as vm" id="circles" class="container" ng-init="creatingCircle = false; menuOpen = false">
+<ion-view view-title="Circle">
+
+<div layout style="width:100%">
+  <div flex="auto" class><h1> Circle </h1></div>
+  <div flex="grow"><h1><a ui-sref="tabEs.ProfileEs"><i class="icon ion-android-happy"></i></a> <a ui-sref="tabEs.AccountEs"><i class="icon ion-android-more-vertical"></i></a></h1></div>
+</div>
+
+  <ion-content class="padding">
+
+
+  <div ng-controller="CirclesController as vm" id="circles" class="container" ng-init="creatingCircle = false; menuOpen = false">
 	<h1>Create a Circle</h1>
 
 
 	<!-- Buttons -->
 	<div class="circleOptions" ng-show="creatingCircle === false">
-		<button ng-click="creatingCircle = true;" class="btn btn-info">New Circle </button>
-		<button ng-click="vm.deleteCircle(); creatingCircle = false;" class="btn btn-danger">Delete Circle </button>
+		<button ng-click="creatingCircle = true;" class="button">New Circle </button>
+		<button ng-click="vm.deleteCircle(); creatingCircle = false;" class="button">Delete Circle </button>
 	</div>
 
 	<div class="circleOptions" ng-show="creatingCircle === true">
 		<input type="text" ng-model="vm.newCircle.name" placeholder="Circle Name">
 		<input type="text" min="1" max="20" value="1" placeholder="Number Of Members" ng-model="vm.newCircle.slices">
-		<button ng-click="vm.makeCircle(); creatingCircle = false;" class="btn btn-success">MakeChart </button>
-		<button ng-click="vm.newCircle= {}; creatingCircle = false;" class="btn btn-danger">Cancel </button>
+		<button ng-click="vm.makeCircle(); creatingCircle = false;" class="button">MakeChart </button>
+		<button ng-click="vm.newCircle= {}; creatingCircle = false;" class="button">Cancel </button>
 	</div>
   <hr>
 
@@ -31,7 +41,7 @@
 				<p class="inline" style="vertical-align: 5vh; margin-left: 1vw; font-size: 1.2em;">{{ contact.firstName }}  {{ contact.lastName }}</p>
 			</div>
 			<br>
-			<button type="button" class="btn btn-danger" ng-click="menuOpen = false">Close</button>
+			<button type="button" class="button" ng-click="menuOpen = false">Close</button>
 		</div>
 		<div id="circleBarMenuText" ng-show="menuOpen === false" ng-click="menuOpen = true;  ">
 			<h3>C</h3>
@@ -45,4 +55,7 @@
 		</div>
 	</div>
 
-</div>
+<button id="c-button--slide-bottom" class="button">Slide Botton</button>
+
+  </ion-content>
+</ion-view>
