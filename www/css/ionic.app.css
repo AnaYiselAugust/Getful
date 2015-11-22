@@ -145,9 +145,9 @@ ion-content {
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')"; }
 
 hr {
-  background-color: #ff6138;
-  color: #f2b132;
-  height: 10px; }
+  background-color: #939597;
+  border: none;
+  height: 1.5px !important; }
 
 .shrink {
   line-height: 50%; }
