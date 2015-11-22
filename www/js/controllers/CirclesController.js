@@ -3,114 +3,87 @@
 	angular.module('app')
 	.controller('CirclesController', CirclesController);
 
-	function CirclesController(HomeFactory, CirclesFactory, $state, $stateParams) {
+	function CirclesController(HomeFactory, $scope, GlobalFactory, $state) {
 		var vm = this;
-		vm.circle = {};
-		vm.canvas = document.getElementById('Canvas');
-		vm.context = vm.canvas.getContext('2d');
+		vm.contacts = HomeFactory.contacts;
+		vm.circles = HomeFactory.circles;
+		vm.tempCircle = HomeFactory.tempCircle;
+		vm.errorText = "";
 
-		// Circle Data
-		var data = [60, 60, 60, 60, 60, 60];
-		var labels = ["60", "60", "60", "60", "60", "60"];
-		var colors = ["rgba(0,0,0,.1)", "rgba(0,0,0,.2)", "rgba(0,0,0,.1)", "rgba(0,0,0,.2)", "rgba(0,0,0,.1)", "rgba(0,0,0,.2)"];
-		vm.canvasEmpty = true;
+		$scope.chartTitle = "";
+		$scope.chartWidth = 1000;
+		$scope.chartHeight = 500;
+		$scope.chartData = [];
 
-		// On Load Get Contacts
-		HomeFactory.getContacts().then(function(res) {
-				vm.contacts = HomeFactory.contacts;
+
+		// Get Contacts
+		HomeFactory.getContacts().then(function() {
+			vm.contacts = HomeFactory.contacts;
 		});
 
+		// Get Circles
+		HomeFactory.getCircles().then(function() {
+			vm.circles = HomeFactory.circles;
+		});
 
-		// On Load Scroll Window To Top
-		window.scrollTo(0, 0);
+		// Save Circle
+		vm.saveCircle = function(circle) {
+			var title = $scope.chartTitle;
+			HomeFactory.saveCircle(circle, title).then(function(res){
+				$scope.chartData = [];
+				$scope.chartTitle = "";
+				$state.go("DisplayCircle");
+			});
+		};
 
+		// Edit Circle
+		vm.editCircle = function(circle) {
+			HomeFactory.tempCircle = circle;
+			$state.go("EditCircle");
+		};
 
-		// Make Circle
-		vm.createCircle = function (canvas, context, i) {
+		// Fix
+		vm.initCircle = function() {
+			for(var x=0;x<HomeFactory.tempCircle.members.length;x++) {
+				$scope.addRow(HomeFactory.tempCircle.members[x]);
+			}
+			$scope.chartTitle = HomeFactory.tempCircle.chartTitle;
+			console.log($scope.chartData);
+		};
 
-			context.save();
-	    var centerX = canvas.width / 2;
-	    var centerY = canvas.height / 2;
-	    vm.radius = canvas.height / 2 - 2;
-
-	    var startingAngle = degreesToRadians(sumTo(data, i));
-	    var arcSize = degreesToRadians(data[i]);
-	    var endingAngle = startingAngle + arcSize;
-
-	    context.beginPath();
-	    context.moveTo(centerX, centerY);
-	    context.arc(centerX, centerY, vm.radius,
-	                startingAngle, endingAngle, false);
-	    context.closePath();
-
-	    context.fillStyle = colors[i];
-	    context.fill();
-			context.lineWidth = 4;
-			context.strokeStyle = '#fff';
-			context.stroke();
-
-	    context.restore();
-
-	    // drawSegmentLabel(canvas, context, i);
-
-			vm.canvasEmpty = false;
-		}
-
-		vm.deleteCircle = function() {
-
-			// Clear Canvas
-			vm.context.clearRect(0, 0, vm.canvas.width, vm.canvas.height);
-
-			// Set Empty Variable To True
-			vm.canvasEmpty = true;
+		// Update Circle
+		vm.updateCircle = function(circle) {
+			var title = $scope.chartTitle;
+			HomeFactory.updateCircle(circle, title).then(function(res){
+				$scope.chartData = [];
+				$scope.chartTitle = "";
+				$state.go("DisplayCircle");
+			});
 		};
 
 
-
-		/* Helper Functions */
-
-		function degreesToRadians(degrees) {
-    	return (degrees * Math.PI)/180;
-		}
-
-		function sumTo(a, i) {
-		  var sum = 0;
-		  for (var j = 0; j < i; j++) {
-		    sum += a[j];
-		  }
-		  return sum;
-		}
-
-		function drawSegmentLabel(canvas, context, i) {
-		   context.save();
-		   var x = Math.floor(canvas.width / 2);
-		   var y = Math.floor(canvas.height / 2);
-		   var angle = degreesToRadians(sumTo(data, i));
-
-		   context.translate(x, y);
-		   context.rotate(angle);
-		   var dx = Math.floor(canvas.width * 0.5) - 10;
-		   var dy = Math.floor(canvas.height * 0.05);
-
-		   context.textAlign = "center";
-		   var fontSize = Math.floor(canvas.height / 25);
-		   context.font = fontSize + "pt Helvetica";
-
-		   context.fillText(labels[i], dx, dy);
-
-		   context.restore();
-		}
-
-
-		vm.makeCircle = function () {
-
-			vm.deleteCircle();
-
-			// Make Circle
-			for (var i = 0; i < data.length; i++) {
-				vm.createCircle(vm.canvas, vm.context, i);
-			}
-		}
+		// Google Charts
+	    $scope.deleteRow = function (index) {
+	        $scope.chartData.splice(index, 1);
+	    };
+	    $scope.addRow = function (contact) {
+				// For Every Contact, Check For Dupes
+				for(var x=0; x<$scope.chartData.length; x++) {
+					if($scope.chartData[x]._id === contact._id) {
+						vm.errorText = "You have already added this contact!";
+						return null;
+					}
+				}
+				// Else Push Contact Into Circle
+				$scope.chartData.push(contact);
+				vm.errorText = '';
+	    };
+	    $scope.selectRow = function (index) {
+	        $scope.selected = index;
+	    };
+	    $scope.rowClass = function (index) {
+	        return ($scope.selected === index) ? "selected" : "";
+		  };
 
 
 
