@@ -73,5 +73,6 @@
 		// Bring State To Document
 		$scope.$state = $state;
 
+
 }
 })();
