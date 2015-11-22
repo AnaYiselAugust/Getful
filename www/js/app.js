@@ -222,6 +222,20 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       }
     }
   })
+
+//---------------- TAB2 STATES ---------------
+  // setup an abstract state for the tabs directive
+    .state('tab2', {
+    url: '/tab2',
+    abstract: true,
+    templateUrl: 'templates/tabs2.html'
+  })
+   .state('tab2Es', {
+    url: '/tab2Es',
+    abstract: true,
+    templateUrl: 'templates/tabs2Es.html'
+  })
+
 //---------------- PROFILE STATES ---------------
 
 
@@ -234,7 +248,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       }
     }
   })
-      .state('tabEs.ProfileEs', {
+      .state('tab2Es.ProfileEs', {
     url: '/profileEs',
     views: {
       'profileEs': {

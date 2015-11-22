@@ -1,6 +1,103 @@
-<ion-view view-title="Cuenta">
-  <ion-content>
+<ion-view view-title="AccountEs">
 
-gfdgfdsgfdgdf
+	<div class="header">
+	  <h1> Cuenta </h1>
+	</div>
+
+
+  <ion-content class="padding">
+	<div ng-controller="AccountController as vm" layout layout-align="space-between center">
+
+		<div id="account" layout="column">
+			<div layout="row">
+			  <div flex="25">
+			  	<p>NAME</p>
+			  </div>
+			  <div flex>
+			  	<p>{{ vm.account.firstName}} {{ vm.account.lastName || "Change your name." }}</p>
+			  </div>
+			  <div flex="15">
+			  	<a href="vm.changeName()">Edit</a>
+			  </div>
+			 </div>
+
+			<div layout="row">
+			  <div flex="25">
+			  	<p>EMAIL</p>
+			  </div>
+			  <div flex>
+			  	<p>{{vm.account.email || "Change your email address."}}</p>
+			  </div>
+			  <div flex="15">
+			  	<a href="vm.changeEmail()">Edit</a>
+			  </div>
+			</div>
+
+			<div layout="row">
+			  <div flex="25">
+			  	<p>PASSWORD</p>
+			  </div>
+			  <div flex>
+			  	<p>Last updated on {{vm.account.passwordDate || "Change your password."}}.</p>
+			  </div>
+			  <div flex="15">
+			  	<a ui-sref="ResetPassword({id: glob.status._id})">Edit</a>
+			  </div>
+			 </div>
+
+			<div layout="row">
+			  <div flex="25">
+			  	<p>LANGUAGE</p>
+			  </div>
+			  <div flex>
+			  	<p>What language do you want to use app in?</p>
+			  </div>
+			  <div flex="15">
+			  	<a ng-click="vm.changeLanguage()">Edit</a>
+			  </div>
+			 </div>
+
+			 <div layout="row">
+			  <div flex="25">
+			  	<p>PROFILE</p>
+			  </div>
+			  <div flex>
+			  	<p>Change your public profile.</p>
+			  </div>
+			  <div flex="15">
+			  	<a ui-sref="Profile">Edit</a> <!-- by id -->
+			  </div>
+			</div>
+
+			<div layout="row">
+			  <div flex="25">
+			  	<p>DELETE ACCOUNT</p>
+			  </div>
+			  <div flex>
+			  	<p>Choose whether you want to keep your account or permanently delete it.</p>
+			  </div>
+			  <div flex="15">
+			  	<a ng-click="vm.showConfirmDelete()">Edit</a> <!-- modal to select "Are you sure you want to permanently delete your account?" -->
+	<!-- 		  	<a ng-click="vm.showConfirmDelete(vm.ev)">Edit</a> modal to select "Are you sure you want to permanently delete your account?" -->
+			  </div>
+			 </div>
+
+			<div layout="column" ng-if="vm.confirmDelete">
+				    <p>Are you sure you want to permanently delete your account?</p>
+				    <button ng-click="vm.deleteAccount()" class="button">Yes, delete my account.</button><br/>
+				    <button ng-click="vm.confirmDelete=false" class="button">Nevermind.<br/><span style="font-size:10px;">I was rushing into a bad decision.</span></button>
+	  		</div>
+
+	<!-- 		<div layout="row" ng-if="vm.status">
+				    <br>
+				    <b layout="row" layout-align="center center" class="md-padding">
+				      {{vm.status || "Status"}}
+				    </b>
+	  		</div> -->
+
+		</div> <!-- end layout row-->
+
+	</div> <!-- end layout row-->
+
   </ion-content>
 </ion-view>
