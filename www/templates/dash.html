@@ -15,7 +15,7 @@
           </div>
           <div layout>
             <div flex="25">
-                <img ng-src="{{ glob.user.profilePic || '/assets/circle-yelloworange.png' }}" class="profilePic" alt="profile pic" />
+                <img ng-src="{{ '/assets/ana.png' || glob.user.profilePic || '/assets/circle-yelloworange.png' }}" class="profilePic" alt="profile pic" />
             </div>
 
             <div flex layout-align="space-between center">
@@ -25,7 +25,7 @@
                 <div class="skill">Illsutrator</div>
                 <div class="skill">Low Key</div>
                 <div class="skill">Babysitter</div>
-                <div class="skill" ui-sref="Profile">Full Profile</div>
+                <div class="skill" style="background-color:orange !important" ui-sref="Profile">Full Profile</div>
                 <!-- <div class="skill" ng-repeat="value in glob.status">{{ value }}</div> -->
                 <br/>
             </div>
@@ -34,41 +34,30 @@
 
             <h3>Recent Circles </h3>
             <hr>
-<!--             <div ng-repeat="circle in vm.circles">
-            <div layout="row" layout-align="center center" class="padAllCircles">    
-                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} </div></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} </div></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} </div></div>
-            </div>
-            <div layout="row" layout-align="center center">
-                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
-            </div>
-            <div layout="row" layout-align="center center">
-                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
-            </div>
-            <div layout="row" layout-align="center center">
-                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
-            </div>
-            </div> -->
 
             <div ng-controller="CirclesController as vm" id="circles" class="container" >
             
-              <div flex="33"  class="circle dashCircle" ng-repeat="circle in vm.circles" style="margin: 1em; height: 15em; width: 15em; padding-top: 5em;" ng-click="vm.editCircle(circle);">
-                <br>
-                <div >
-                <center>
-                <h3>
-                  {{ circle.chartTitle }}
-                </h3>
-                </center>
-              </div>
-              </div>
+<!--             <div layout="row" ng-repeat="circle in vm.circles" flex="33">
+                  <div layout="column">
+                      <div class="circle dashCircle"></div>
+                      <div class="center">{{ circle.chartTitle }}</div>
+                  </div>
+              </div> -->
+           <div layout="row" layout-align="top center" class="padAllCircles">    
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center"><p>Women of Color (Tech)</p> </div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center"><p>Low Key Friends</p></div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center"><p>People w/ $$$</p></div></div>
+            </div>
+             <div layout="row" layout-align="top center" class="padAllCircles">    
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center"><p>Bakers YUM!</p></div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center"><p>Colombian Fam</p></div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center"><p>Dogsitters</p></div></div>
+            </div>
+             <div layout="row" layout-align="top center" class="padAllCircles">    
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center"><p>Textile Designers</p></div></div>
+
+            </div>
+
              
 
 
