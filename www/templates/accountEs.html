@@ -1,7 +1,7 @@
-<ion-view view-title="AccountEs">
+<ion-view view-title="Account">
 
 	<div class="header">
-	  <h1> Cuenta </h1>
+	  <h1> Account </h1>
 	</div>
 
 
@@ -11,81 +11,81 @@
 		<div id="account" layout="column">
 			<div layout="row">
 			  <div flex="25">
-			  	<p>NAME</p>
+			  	<p>NOMBRE</p>
 			  </div>
 			  <div flex>
 			  	<p>{{ vm.account.firstName}} {{ vm.account.lastName || "Change your name." }}</p>
 			  </div>
 			  <div flex="15">
-			  	<a href="vm.changeName()">Edit</a>
+			  	<a href="vm.changeName()">Editar</a>
 			  </div>
 			 </div>
 
 			<div layout="row">
 			  <div flex="25">
-			  	<p>EMAIL</p>
+			  	<p>CORREO</p>
 			  </div>
 			  <div flex>
 			  	<p>{{vm.account.email || "Change your email address."}}</p>
 			  </div>
 			  <div flex="15">
-			  	<a href="vm.changeEmail()">Edit</a>
+			  	<a href="vm.changeEmail()">Editar</a>
 			  </div>
 			</div>
 
 			<div layout="row">
 			  <div flex="25">
-			  	<p>PASSWORD</p>
+			  	<p>CLAVE</p>
 			  </div>
 			  <div flex>
 			  	<p>Last updated on {{vm.account.passwordDate || "Change your password."}}.</p>
 			  </div>
 			  <div flex="15">
-			  	<a ui-sref="ResetPassword({id: glob.status._id})">Edit</a>
+			  	<a ui-sref="ResetPassword({id: glob.status._id})">Editar</a>
 			  </div>
 			 </div>
 
 			<div layout="row">
 			  <div flex="25">
-			  	<p>LANGUAGE</p>
+			  	<p>IDIOMA</p>
 			  </div>
 			  <div flex>
-			  	<p>What language do you want to use app in?</p>
+			  	<p>Selecciona un Idioma para usar esta aplicación.</p>
 			  </div>
 			  <div flex="15">
-			  	<a ng-click="vm.changeLanguage()">Edit</a>
+			  	<a ng-click="vm.changeLanguage()">Editar</a>
 			  </div>
 			 </div>
 
 			 <div layout="row">
 			  <div flex="25">
-			  	<p>PROFILE</p>
+			  	<p>PERFÍL</p>
 			  </div>
 			  <div flex>
-			  	<p>Change your public profile.</p>
+			  	<p>Actualiza tu perfíl público.</p>
 			  </div>
 			  <div flex="15">
-			  	<a ui-sref="Profile">Edit</a> <!-- by id -->
+			  	<a ui-sref="Profile">Editar</a> <!-- by id -->
 			  </div>
 			</div>
 
 			<div layout="row">
 			  <div flex="25">
-			  	<p>DELETE ACCOUNT</p>
+			  	<p>CERRAR CUENTA</p>
 			  </div>
 			  <div flex>
-			  	<p>Choose whether you want to keep your account or permanently delete it.</p>
+			  	<p>Cerrar cuenta permanente o temporeramente.</p>
 			  </div>
 			  <div flex="15">
-			  	<a ng-click="vm.showConfirmDelete()">Edit</a> <!-- modal to select "Are you sure you want to permanently delete your account?" -->
+			  	<a ng-click="vm.showConfirmDelete()">Editar</a> <!-- modal to select "Are you sure you want to permanently delete your account?" -->
 	<!-- 		  	<a ng-click="vm.showConfirmDelete(vm.ev)">Edit</a> modal to select "Are you sure you want to permanently delete your account?" -->
 			  </div>
 			 </div>
 
 			<div layout="column" ng-if="vm.confirmDelete">
-				    <p>Are you sure you want to permanently delete your account?</p>
-				    <button ng-click="vm.deleteAccount()" class="button">Yes, delete my account.</button><br/>
-				    <button ng-click="vm.confirmDelete=false" class="button">Nevermind.<br/><span style="font-size:10px;">I was rushing into a bad decision.</span></button>
+				    <p>Seguro deseas Cerrar tu cuenta?</p>
+				    <button ng-click="vm.deleteAccount()" class="button">Sí, deseo cerrar mi cuenta.</button><br/>
+				    <button ng-click="vm.confirmDelete=false" class="button">Olvídalo.<br/><span style="font-size:10px;"> Me apresuré a tomar una mala decisión..</span></button>
 	  		</div>
 
 	<!-- 		<div layout="row" ng-if="vm.status">
@@ -98,6 +98,7 @@
 		</div> <!-- end layout row-->
 
 	</div> <!-- end layout row-->
+
 
   </ion-content>
 </ion-view>

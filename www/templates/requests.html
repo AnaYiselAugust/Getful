@@ -11,7 +11,7 @@
       <div ng-controller="RequestsController as vm" id="requests" class="container">
         <h1>View Requests</h1>
         <div class="text-left">
-          <button type="button" ui-sref="tab.AddRequest" class="btn btn-success">Add Request</button>
+          <button type="button" ui-sref="tab.AddRequest" class="button">Add Request</button>
         </div>
         <hr>
         <br>
@@ -54,7 +54,7 @@
               <br>
               <img src="http://justinsarnik.com/img/global/close.png" class="close" ng-click="vm.modalOn = false" alt="Close Icon" />
               <div id="modalButtons">
-                <button type="button" class="btn btn-success" ui-sref="Refer">Refer Someone</button>
+                <button type="button" class="btn btn-success" ui-sref="tab.Refer">Refer Someone</button>
                 <button type="button" class="btn btn-danger" ng-click="vm.modalOn = false">Cancel</button>
               </div>
           </div>

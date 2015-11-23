@@ -1,10 +1,16 @@
 <div ng-controller="ContactsController as vm" id="contacts" class="container">
-<h1>Añadir Contactos</h1>
+
+<div flex><h1> Añadir Contactos </h1></div>
+<div style="position:fixed;right:10%"><h1><a ui-sref="tabEs.ProfileEs"><i class="icon ion-android-happy"></i></a> <a ui-sref="tabEs.AccountEs"><i class="icon ion-android-more-vertical"></i></a></h1></div>
+</div>
+
+<input type="email" placeholder="Email Address" ng-model="email" />
+<button type="button" ng-click="vm.sendRequest(email)"> Enviar Solicitud </button>
 
 <form ng-submit="vm.addContact(vm.newContact);">
-  <input type="text" placeholder="Nombre" ng-model="vm.newContact.firstName" />
-  <input type="text" placeholder="Apellido" ng-model="vm.newContact.lastName" />
-  <input type="email" placeholder="Correo Electrónico" ng-model="vm.newContact.email" />
+  <input type="text" placeholder="First Name" ng-model="vm.newContact.firstName" />
+  <input type="text" placeholder="Last Name" ng-model="vm.newContact.lastName" />
+  <input type="email" placeholder="Email Address" ng-model="vm.newContact.email" />
   <div>
     <label class="inline">Información Adicional
         <input type="checkbox" class="inline" ng-model="extras">
@@ -14,19 +20,19 @@
   <div class="row" ng-show="extras">
       <input type="text" placeholder="Job Title" ng-model="vm.newContact.title" />
     <div class="col-xs-6">
-      <input type="text" ng-disabled="!extras" placeholder="Foto de Perfíl" ng-model="vm.newContact.profilePic" />
-      <input type="text" ng-disabled="!extras" placeholder="Celular" ng-model="vm.newContact.phone" />
-      <input type="text" ng-disabled="!extras" placeholder="Cuenta de Skype" ng-model="vm.newContact.skype" />
+      <input type="text" ng-disabled="!extras" placeholder="Profile Picture" ng-model="vm.newContact.profilePic" />
+      <input type="text" ng-disabled="!extras" placeholder="Phone Number" ng-model="vm.newContact.phone" />
+      <input type="text" ng-disabled="!extras" placeholder="Skype" ng-model="vm.newContact.skype" />
     </div>
     <div class="col-xs-6">
-      <input type="text" ng-disabled="!extras" placeholder="Enlace a LinkedIn" ng-model="vm.newContact.linkedIn" />
-      <input type="text" ng-disabled="!extras" placeholder="Enlace a Facebook" ng-model="vm.newContact.facebook" />
-      <input type="text" ng-disabled="!extras" placeholder="Enlace a Google+" ng-model="vm.newContact.google" />
+      <input type="text" ng-disabled="!extras" placeholder="LinkedIn Profile Url" ng-model="vm.newContact.linkedIn" />
+      <input type="text" ng-disabled="!extras" placeholder="Facebook Url" ng-model="vm.newContact.facebook" />
+      <input type="text" ng-disabled="!extras" placeholder="Google+ Url" ng-model="vm.newContact.google" />
     </div>
     <textarea ng-disabled="!extras" ng-model="vm.newContact.bio" placeholder="Bio"></textarea>
   </div>
   <br>
-  <button type="submit" class="btn btn-success">Guardar Contacto</button>
+  <button type="submit" class="btn btn-success"> Guardar Contacto</button>
   <button type="button" class="btn btn-danger" ui-sref="Contacts" ng-click="vm.newContact = {};">Cancelar</button>
 </form>
 

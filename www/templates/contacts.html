@@ -9,6 +9,7 @@
 
   <div ng-controller="ContactsController as vm" id="contacts" class="container">
 
+
       <div flex><h1> Add Contacts </h1></div>
 
       <form ng-submit="vm.addContact(vm.newContact);">
@@ -35,11 +36,22 @@
           </div>
           <textarea ng-disabled="!extras" ng-model="vm.newContact.bio" placeholder="Bio"></textarea>
         </div>
+<<<<<<< HEAD
         <br>
         <button type="submit" class="button">Save Contact</button>
         <button type="button" class="button" ui-sref="Contacts" ng-click="vm.newContact = {};">Cancel</button>
       </form>
       <!-- end Add Contacts -->
+=======
+      </div>
+      <br>
+      <button type="button" class="btn btn-danger" id="modalButtons" style="margin-left: 4vw;"ng-click="vm.modalOn = false">Close</button>
+      <img src="http://justinsarnik.com/img/global/close.png" class="close" ng-click="vm.modalOn = false" alt="Close Icon" />
+  </div>
+</div>
+
+<!--
+>>>>>>> 8ebefd262ae2877fdd27180fc684ab8dee66da86
 
       <hr>
       <br>
