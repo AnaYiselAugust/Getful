@@ -47,11 +47,12 @@ placeholder {
   filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')"; }
 
 .add {
+  color: #79bd8f;
   position: absolute;
   position: fixed;
-  left: 20px;
-  top: 80px;
-  font-size: -webkit-xxx-large !important; }
+  bottom: 45px;
+  right: 45px;
+  font-size: 150px !important; }
 
 #toplayer {
   z-index: 9999;
@@ -193,6 +194,10 @@ padAllCircles {
   color: #FFFF9D;
   border-radius: 100%;
   background: rgba(0, 0, 0, 0.1); }
+
+.contactPic {
+  height: 30px;
+  width: 30px; }
 
 /*!
   Ionicons, v2.0.1

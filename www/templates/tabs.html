@@ -8,7 +8,7 @@ navigation history that also transitions its views in and out.
 <ion-tabs> <!-- will generate tab bar and include the content within // took out  tabs-color-active-positive class="tabs-icon-top tabs-positive"-->
 
   <!-- Dashboard Tab --> <!-- ion-tab specifies the content of the tab -->
-  <ion-tab title="Dashboard " icon-off="ion-ios-keypad" icon-on="ion-ios-keypad" ui-sref="tab.Dash">
+  <ion-tab title="Dashboard " icon-off="ion-ios-keypad" icon-on="ion-ios-keypad" ui-sref="tab.Dash" badge="data.badgeCount" ng-controller="GlobalController" badge-style="badge-positive"> >
     <ion-nav-view name="dash"></ion-nav-view>
   </ion-tab>
 

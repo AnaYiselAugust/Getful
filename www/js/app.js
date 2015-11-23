@@ -240,7 +240,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
 
 
 
-    .state('tab.Profile', {
+    .state('tab2.Profile', {
     url: '/profile',
     views: {
       'profile': {
