@@ -92,12 +92,12 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
 
 //---------------- TAB STATES ---------------
   // setup an abstract state for the tabs directive
-    .state('tab', {
+    .state('tab', {  //Probando algo
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
-   .state('tabEs', {
+   .state('tabEs', { //probando algo
     url: '/tabEs',
     abstract: true,
     templateUrl: 'templates/tabsEs.html'
@@ -106,7 +106,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
 //---------------- DASH TAB STATES ---------------
   // Each tab has its own nav history stack:
 
-  .state('tab.Dash', {
+  .state('tab.Dash', { //probando algo
     url: '/dash',
     views: {
       'dash': {
@@ -114,7 +114,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       }
     }
   })
-    .state('tabEs.DashEs', {
+    .state('tabEs.DashEs', { //probando algo
     url: '/dashEs',
     views: {
       'dashEs': {
@@ -140,7 +140,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
         }
       }
     })
-    .state('tab.CreateCircle',{
+    .state('tab.CreateCircle',{  ///probando algo
       url: '/createcircle',
       views: {
         'createCircle': {
@@ -148,7 +148,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
         }
       }
     })
-    .state('tabEs.CreateCircleEs',{
+    .state('tabEs.CreateCircleEs',{  //probando algo
       url: '/createcircleEs',
       views: {
         'createCircleEs': {
@@ -281,7 +281,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       }
     }
   })
-      .state('tab2Es.ProfileEs', {
+      .state('tabEs.ProfileEs', {
     url: '/profileEs',
     views: {
       'profileEs': {
