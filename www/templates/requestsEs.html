@@ -1,66 +1,73 @@
 <ion-view view-title="Requests">
 
     <div class="header">
-      <h1> Solicitud </h1>
+      <h1> Solicitudes </h1>
     </div>
 
 
 
   <ion-content class="padding">
 
-      <div ng-controller="RequestsController as vm" id="requests" class="container">
-        <h1> Ver Solicitud </h1>
-        <div class="text-left">
-          <button type="button" ui-sref="tabEs.AddRequestEs" class="button">Añadir solicitud</button>
-        </div>
-        <hr>
-        <br>
-        <input type="text" ng-model="searchRequests" class="searchBar" placeholder="Search Requests"/>
-        <br>
+      <div ng-controller="RequestsController as vm" id="requests" class="container" ng-init="selectPeople = false;">
 
-        <!-- Requests -->
-        <div ng-repeat="request in vm.requests | filter:searchRequests" style="position: relative;">
-          <div class="request" ng-click="vm.modalOn = true; vm.viewRequest = request;">
-            <h3>{{ request.title }}</h3>
-            <h5 class="inline" ng-repeat="skill in request.skills" style="margin-right: 1vw;">{{ skill }}</h5>
-            <h5 ng-show="request.skills.length === 0" class="inline"> No haz añadido habilidades.</h5>
+      <br/>
+
+      <form ng-submit="vm.handleAddForm(vm.newRequest, vm.newRequest.skill);" >
+      <center>
+        <h3 style="color: white;">Quieén puede ver mi Solicitud?</h3>
+        <select ng-model="vm.newRequest.privacy">
+         <option ng-value="'Global'" value="Global">Todos</option>
+         <option ng-value="'Contacts'">Contactos</option>
+         </center>
+         <br/>
+         <option ng-repeat="circle in vm.circles" ng-value="'Circle'">{{ circle.chartTitle }}</option>
+         <option ng-value="'Select'">Selecciona Personas...</option>
+        </select>
+        <div class="" ng-show="vm.newRequest.privacy === 'Select'">
+          <input type="text" placeholder="Add Contact" ng-model="vm.searchContact" />
+          <div style="border: solid 1px #fff; margin-bottom: 5vh;" ng-if="vm.searchContact">
+            <div ng-repeat="contact in vm.contacts | filter:vm.searchContact" ng-mouseover="mouseOver = true;" ng-mouseout="mouseOver = false;">
+              <p ng-class="{shade: mouseOver}" ng-click="vm.addSelectPrivacy(contact);" style="display: inline-block; padding: 1vh 10vw;">{{ contact.firstName }}  {{ contact.lastName }}</p>
+            </div>
+          </div>
+          <div class="text-left" ng-show="vm.selectPrivacy">
+            <h3 ng-show="vm.selectPrivacy.length > 0">Contactos: </h3>
+            <div class="skill" ng-repeat="member in vm.selectPrivacy" ng-click="vm.deleteMember(member);">
+              <h5 class="inline"  style="margin: 1em">{{ member }}</h5>
+            </div>
             <br>
-            <br>
-            <p class="small" style="color: white;"><em>{{ request.email }}</em></p>
           </div>
-          <div class="visibility">
-            <img src="http://www.cedar-health.com/assets/images/ethos-icons/ethos-attention-eye-icon.png" alt="Visibility Icon" />
-            <p class="small inline"><em>{{ request.privacy }}</em></p>
-          </div>
-          <div ng-if="request.email === glob.status.username">
-            <img src="http://s9.postimg.org/42jxt0jb3/edit.png" class="edit" ng-click="vm.editRequest(request);" alt="Edit Icon" />
-            <img src="http://s9.postimg.org/4e1e5rzr3/delete.png" class="delete" ng-click="vm.deleteRequest(request._id);" alt="Delete Icon" />
-          </div>
+          <hr>
         </div>
 
-        <!-- Modal -->
-        <div ng-show="vm.modalOn">
-          <div id="Modal" ng-click="vm.modalOn = false">
-          </div>
-          <div id="ModalBox">
-              <h1>{{ vm.viewRequest.title}}</h1>
-              <h4 style="color: white;">{{ vm.viewRequest.email }}</h4> <!-- Change this to show the user's email, like PostedBy -->
-              <img src="http://www.cedar-health.com/assets/images/ethos-icons/ethos-attention-eye-icon.png" alt="Visibility Icon" style="max-width: 1.5em;" />
-              <p class="small inline"><em>{{ vm.viewRequest.privacy }}</em></p>
-              <hr>
-              <p style="color: #FFFF9D">{{ vm.viewRequest.body}}</p>
-              <hr>
-              <p ng-repeat="skill in vm.viewRequest.skills" class="inline" style="margin: 1em;">{{ skill }}</p>
-              <br>
-              <img src="http://justinsarnik.com/img/global/close.png" class="close" ng-click="vm.modalOn = false" alt="Close Icon" />
-              <div id="modalButtons">
-                <button type="button" class="btn btn-success" ui-sref="Refer"> Referir Amigos</button>
-                <button type="button" class="btn btn-danger" ng-click="vm.modalOn = false">Cancelar</button>
-              </div>
-          </div>
-        </div>
+        <md-input-container>
+                 <input type="text" placeholder="Título" ng-model="vm.newRequest.title" />
+        </md-input-container>
+        <md-input-container>
+                 <textarea ng-model="vm.newRequest.body" placeholder="Solicitud"></textarea>
+        </md-input-container>
+        <md-input-container>
+                 <input type="text" placeholder="Destrezas | Presiona Enter para añadir." ng-model="vm.newRequest.skill" />
+        </md-input-container>
 
+        <div class="text-left" ng-show="vm.newRequest.skills.length > 0">
+          <h3>Skills: </h3>
         </div>
+        <div class="skill" ng-repeat="skill in vm.newRequest.skills" ng-click="vm.deleteSkill(skill);">
+          {{ skill }}
+        </div>
+        <br>
+        <br>
+        <div ng-show="vm.errorText" class="text-center">
+          <p style="color: #ffff9d" id="errorText">{{ vm.errorText }}</p>
+        </div>
+        <br>
+        <button type="submit" class="button" ng-disabled="!vm.newRequest.title || !vm.newRequest.body">Guardar</button>
+      </form>
+
+      </div>
+
+
 
   </ion-content>
 </ion-view>

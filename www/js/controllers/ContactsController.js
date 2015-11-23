@@ -60,13 +60,12 @@
 
 			// If No ProfilePic, Assign Default Picture
 			if(!vm.newContact.profilePic) {
-				vm.newContact.profilePic = "https://www.k-state.edu/hcs/images/anonymous_silhouette.jpg";
+				vm.newContact.profilePic = "/assets/circle.png";
 			}
 
 			HomeFactory.addContact(vm.newContact).then(function(res){
 				vm.newContact = {};
 				vm.getContacts();
-				$state.go("tab.Contacts");
 			});
 		};
 
@@ -90,12 +89,11 @@
 		vm.saveContact = function(contact) {
 			// If No ProfilePic, Assign Default Picture
 			if(!contact.profilePic) {
-				contact.profilePic = "https://www.k-state.edu/hcs/images/anonymous_silhouette.jpg";
+				contact.profilePic = "/assets/circle.png";
 			}
 
 			HomeFactory.saveContact(contact).then(function(res) {
 				vm.getContacts();
-				$state.go("tab.Contacts");
 			});
 		};
  /* -------------------- Send Friend Request ----------------------------------------------*/
@@ -114,6 +112,17 @@
 				console.log(res);
 			});
 		};
+
+// NOTIFICATIONS
+
+$scope.data = {
+    badgeCount : 2
+  };
+
+
+
+
+
 
 	}
 })();

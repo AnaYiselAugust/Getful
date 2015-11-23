@@ -1,28 +1,75 @@
 <ion-view view-title="Circle">
 
 	<div class="header">
-	  <h1> Circle </h1>
+	  <h1> Circles </h1>
 	</div>
+
+  <!-- <i type="button" class="icon ion-ios-plus add" style="z-index: 9999; position:fixed; bottom:10%; right:5%;font-size:45px;color:orange;"></i> -->
 
   <ion-content class="padding">
 
 
-    <div ng-controller="CirclesController as vm" id="circles" class="container" >
-  	<h1>View Circles</h1>
+    <div ng-controller="CirclesController as vm" id="circles" class="container" ng-init="creatingCircle = false; menuOpen = false; vm.creating = true;">
 
-  	<div class="text-left">
-      <button ui-sref='tab.CreateCircle' class="button">Create Circle</button>
-  	</div>
-  	<hr>
+      <form ng-submit="vm.saveCircle(chartData)">
+          <div style="">
+<!--             <div>
+              <h3> {{ chartTitle || " ."}} </h3>
+            </div> -->
+            <div class="text-center" ng-show="chartData.length === 0">
+              <br>
+              <center>
+              <h3 style="color:white;"> Your contacts are a wealth of resources! </h3>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
 
-  	<div class="circle shade" ng-repeat="circle in vm.circles" style="margin: 1em; height: 15em; width: 15em; padding-top: 5em;" ng-click="vm.editCircle(circle);">
-  		<br>
-  		<h3>
-  			{{ circle.chartTitle }}
-  		</h3>
-  	</div>
-  </div>
+              <h3 style="color: white;">Go ahead and give your circle a Name and add Contacts.</h3>
+              </center>
+            </div>
+            <div class="svg" style="margin-left:-135px !important;margin-top:-65px !important">
+            <pie-chart data="chartData" title="{{chartTitle}}" ng-show="chartData.length > 0" width="{{chartWidth}}" height="{{chartHeight}}" select="selectRow(selectedRowIndex)" id="pieChart"></pie-chart>
+            </div>
+            <br>
+            <br>
+          </div>
 
+      <div style="position:fixed;top:350px;width:100%;z-index:10000"> <!-- margin-top:-125px -->
+          <div layout layout-align="space-around center">
+          <md-input-container flex>
+                 <input ng-model="chartTitle" placeholder="Circle Name">
+          </md-input-container>
+          <div flex="25" style="text-align:right">
+            <button type="submit" class="button" ng-disabled="!chartTitle || chartData.length === 0">Save</button>
+          </div>
+          </div>
+
+          <div ng-repeat="row in chartData" ng-class="rowClass($index)" style="display:inline">
+                  <button class="skill">{{ row.firstName }} <i ng-click="deleteRow($index)" class="ion-ios-close deleteContact"></i></button>
+          </div>
+
+        <input type="text" placeholder="Search for Contact" class="" ng-model="searchCircles" style="width:100%">
+        <ion-scroll zooming="true" direction="y" style="width: 100%; height: 150px">
+          <div style="width: 100%;">
+            <ion-list>
+              <ion-item ng-repeat="contact in vm.contacts | filter:searchCircles" ng-click="addRow(contact);">
+                  {{contact.firstName}} {{ contact.lastName }}
+              </ion-item>
+            </ion-list>
+
+          </form>
+
+          </div>
+         </ion-scroll>
+
+<!--         <div style="text-align:right">
+            <button type="submit" class="button" ng-disabled="!chartTitle || chartData.length === 0">Save Circle </button>
+        </div> -->
+      </div>
+
+  <!-- <i ui-sref="tab2.Profile" type="button" class="icon ion-ios-plus add"></i> -->
 
   </ion-content>
 </ion-view>

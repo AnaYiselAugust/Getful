@@ -61,15 +61,19 @@ placeholder {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
+.accountTitle {
+	color: $yelloworange !important;
+}
 
 // LAYERS
 
 .add {
+	color: $mint;
 	position: absolute;
 	position:fixed;
-	left: 20px;
-	top: 80px;
-	font-size: -webkit-xxx-large !important;
+	bottom: 45px;
+	right: 45px;
+	font-size: 150px !important;
 }
 #toplayer {
 	z-index: 9999; 
@@ -227,9 +231,13 @@ img {
 padAllCircles {
 	margin-botom: 15px !important;
 }
-
-
-// PROFILE PIC
+svg {
+	    margin-left: -150 !important;
+}
+.svg {
+	    margin-left: -350 !important;
+}
+// PICS
 .profilePic {
   display: inline-block;
   padding: 0px !important;
@@ -241,7 +249,10 @@ padAllCircles {
   background: rgba(0,0,0,.1);
 }
 
-
+.contactPic {
+	height:30px;
+	width:30px;
+}
 
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;

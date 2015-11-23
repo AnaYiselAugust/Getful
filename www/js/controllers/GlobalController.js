@@ -3,13 +3,15 @@
 	angular.module('app')
 	.controller('GlobalController', GlobalController);
 
-	function GlobalController(GlobalFactory, $state, $stateParams, $scope, $window) {
+	function GlobalController(GlobalFactory, HomeFactory, $state, $stateParams, $scope, $window) {
 		var glob = this;
 		glob.user = {};
 //--------------- ADD THIS TO CHECK -----------------
 		glob.isLogin = true; //switch between the login and register view on the login_register.html page
     		glob.user = {};
    		glob.status = GlobalFactory.status;
+   		glob.contacts = HomeFactory.contacts;
+		glob.circles = HomeFactory.circles;
 
 		// On Load Scroll Window To Top
 		window.scrollTo(0, 0);
