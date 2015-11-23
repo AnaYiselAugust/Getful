@@ -9,13 +9,17 @@
   <ion-content class="padding">
 
       <div ng-controller="RequestsController as vm" id="requests" class="container" ng-init="selectPeople = false;">
-      <h1>Add Request</h1>
-
+  
+      <br/>
+      
       <form ng-submit="vm.handleAddForm(vm.newRequest, vm.newRequest.skill);" >
-        <label>Who Can See My Request?</label>
+      <center>
+        <h3 style="color: white;">Who Can See My Request?</h3>
         <select ng-model="vm.newRequest.privacy">
          <option ng-value="'Global'" value="Global">Everyone</option>
          <option ng-value="'Contacts'">Contacts</option>
+         </center>
+         <br/>
          <option ng-repeat="circle in vm.circles" ng-value="'Circle'">{{ circle.chartTitle }}</option>
          <option ng-value="'Select'">Select People...</option>
         </select>

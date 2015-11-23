@@ -8,45 +8,78 @@
   <ion-content class="padding">
 
   <div ng-controller="ContactsController as vm" id="contacts" class="container">
-
-
-      <div flex><h1> Add Contacts </h1></div>
+<br/>
+      <center>
+      <div flex><h3> Add Contacts by their Skills!</h4></div>
+      </center>
 
       <form ng-submit="vm.addContact(vm.newContact);">
+      <md-input-container>
         <input type="text" placeholder="First Name" ng-model="vm.newContact.firstName" />
+       </md-input-container>
+
+        <md-input-container>
         <input type="text" placeholder="Last Name" ng-model="vm.newContact.lastName" />
+         </md-input-container>
+
+          <md-input-container>
         <input type="email" placeholder="Email Address" ng-model="vm.newContact.email" />
+         </md-input-container>
         <div>
-          <label class="inline">Extra Information
+        <center>
+          <label class="inline" style="color:white;">Extra Information
               <input type="checkbox" class="inline" ng-model="extras">
           </label>
+          </center>
         </div>
 
-        <div class="row" ng-show="extras">
+        <div class="colum" ng-show="extras">
+         <md-input-container>
             <input type="text" placeholder="Job Title" ng-model="vm.newContact.title" />
-          <div class="col-xs-6">
+           </md-input-container>
+        
+           <md-input-container>
             <input type="text" ng-disabled="!extras" placeholder="Profile Picture" ng-model="vm.newContact.profilePic" />
+            </md-input-container>
+
+             <md-input-container>
             <input type="text" ng-disabled="!extras" placeholder="Phone Number" ng-model="vm.newContact.phone" />
+             </md-input-container>
+
+            <md-input-container>
             <input type="text" ng-disabled="!extras" placeholder="Skype" ng-model="vm.newContact.skype" />
-          </div>
-          <div class="col-xs-6">
+             </md-input-container>
+          
+         
+           <md-input-container>
             <input type="text" ng-disabled="!extras" placeholder="LinkedIn Profile Url" ng-model="vm.newContact.linkedIn" />
+             </md-input-container>
+
+              <md-input-container>
             <input type="text" ng-disabled="!extras" placeholder="Facebook Url" ng-model="vm.newContact.facebook" />
+             </md-input-container>
+
+              <md-input-container>
             <input type="text" ng-disabled="!extras" placeholder="Google+ Url" ng-model="vm.newContact.google" />
-          </div>
-          <textarea ng-disabled="!extras" ng-model="vm.newContact.bio" placeholder="Bio"></textarea>
+             </md-input-container>
+
+              <md-input-container>
+                   <textarea ng-disabled="!extras" ng-model="vm.newContact.bio" placeholder="Bio"></textarea>
+                 </md-input-container>
         </div>
 
         <br>
+        <center>
         <button type="submit" class="button">Save Contact</button>
         <button type="button" class="button" ui-sref="Contacts" ng-click="vm.newContact = {};">Cancel</button>
+        </center>
       </form>
       <!-- end Add Contacts -->
 
       </div>
       <br>
-      <button type="button" class="btn btn-danger" id="modalButtons" style="margin-left: 4vw;"ng-click="vm.modalOn = false">Close</button>
-      <img src="http://justinsarnik.com/img/global/close.png" class="close" ng-click="vm.modalOn = false" alt="Close Icon" />
+<!--       <button type="button" class="btn btn-danger" id="modalButtons" style="margin-left: 4vw;"ng-click="vm.modalOn = false">Close</button>
+      <img src="http://justinsarnik.com/img/global/close.png" class="close" ng-click="vm.modalOn = false" alt="Close Icon" /> -->
   </div>
 </div>
 

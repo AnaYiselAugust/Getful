@@ -273,7 +273,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
 
 
 
-    .state('tab2.Profile', {
+    .state('Profile', {
     url: '/profile',
     views: {
       'profile': {
@@ -281,7 +281,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       }
     }
   })
-      .state('tab2Es.ProfileEs', {
+      .state('ProfileEs', {
     url: '/profileEs',
     views: {
       'profileEs': {

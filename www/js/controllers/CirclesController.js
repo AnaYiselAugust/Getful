@@ -3,7 +3,7 @@
 	angular.module('app')
 	.controller('CirclesController', CirclesController);
 
-	function CirclesController(HomeFactory, $scope, GlobalFactory, $state) {
+	function CirclesController(HomeFactory, $scope, GlobalFactory, $state, $mdToast) {
 		var vm = this;
 
 
@@ -33,9 +33,10 @@
 		vm.saveCircle = function(circle) {
 			var title = $scope.chartTitle;
 			HomeFactory.saveCircle(circle, title).then(function(res){
-				$scope.chartData = [];
-				$scope.chartTitle = "";
-				$state.go("tab.DisplayCircle");
+				$mdToast.show($mdToast.simple().content('Saved!'))
+				// $scope.chartData = [];
+				// $scope.chartTitle = "";
+				// $state.go("tab.DisplayCircle");
 			});
 		};
 

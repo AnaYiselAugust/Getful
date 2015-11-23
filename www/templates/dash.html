@@ -10,21 +10,22 @@
 
       <div ng-controller="NotifyController as vm" id="dashboard" class="container">
           <div>
-                          <h3>{{glob.status.firstName}} {{glob.status.lastName}}</h3>
+                          <h2>{{glob.status.firstName}} {{glob.status.lastName}}</h2>
                           <hr>
           </div>
           <div layout>
             <div flex="25">
-                <img src="http://ratter.com/images/default/userpic-original.png" class="profilePic" alt="profile pic" />
+                <img ng-src="{{ glob.user.profilePic || '/assets/circle-yelloworange.png' }}" class="profilePic" alt="profile pic" />
             </div>
 
             <div flex layout-align="space-between center">
                 <div class="skill">Design</div>
-                <div class="skill">fdsfds</div>
+                <div class="skill">Resume</div>
                 <div class="skill">Dance</div>
-                <div class="skill">fdsffdfdsfdsfdsds</div>
-                <div class="skill">fdssdfds df s d fds</div>
-                <div class="skill">Design</div>
+                <div class="skill">Illsutrator</div>
+                <div class="skill">Low Key</div>
+                <div class="skill">Babysitter</div>
+                <div class="skill" ui-sref="Profile">Full Profile</div>
                 <!-- <div class="skill" ng-repeat="value in glob.status">{{ value }}</div> -->
                 <br/>
             </div>
@@ -33,10 +34,11 @@
 
             <h3>Recent Circles </h3>
             <hr>
+<!--             <div ng-repeat="circle in vm.circles">
             <div layout="row" layout-align="center center" class="padAllCircles">    
-                <div flex="33" ><a href=""><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></a></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
-                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} </div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} </div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} </div></div>
             </div>
             <div layout="row" layout-align="center center">
                 <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
@@ -52,9 +54,52 @@
                 <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
                 <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
                 <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
+            </div>
+            </div> -->
+
+            <div ng-controller="CirclesController as vm" id="circles" class="container" >
+            
+              <div flex="33"  class="circle dashCircle" ng-repeat="circle in vm.circles" style="margin: 1em; height: 15em; width: 15em; padding-top: 5em;" ng-click="vm.editCircle(circle);">
+                <br>
+                <div >
+                <center>
+                <h3>
+                  {{ circle.chartTitle }}
+                </h3>
+                </center>
+              </div>
+              </div>
+             
+
+
+
+              </div>
             </div>
 
-      </div>
+            <!-- <div ng-controller="CirclesController as vm" ng-repeat="circle in vm.circles">
+            <div layout="row" layout-align="center center" class="padAllCircles">    
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle.chartTitle}} </div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} </div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} </div></div>
+            </div>
+            <div layout="row" layout-align="center center">
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
+            </div>
+            <div layout="row" layout-align="center center">
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
+            </div>
+            <div layout="row" layout-align="center center">
+                <div flex="33" ><div class="circle dashCircle"></div><div class="center">{{circle}} gfdgdf</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} fdgfdg</div></div>
+                <div flex="33"><div class="circle dashCircle"></div><div class="center">{{circle}} dfgfdg</div></div>
+            </div>
+            </div> -->
+
+      
 
 
   </ion-content>

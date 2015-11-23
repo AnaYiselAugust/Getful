@@ -18,7 +18,16 @@
             </div> -->
             <div class="text-center" ng-show="chartData.length === 0">
               <br>
-              <!-- <h5>Please Add Contacts To Create A Circle</h5> -->
+              <center>
+              <h3 style="color:white;"> Your contacts are a wealth of resources! </h3>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+              <br/>
+
+              <h3 style="color: white;">Go ahead and give your circle a Name and add Contacts.</h3>
+              </center>
             </div>
             <div class="svg" style="margin-left:-135px !important;margin-top:-65px !important">
             <pie-chart data="chartData" title="{{chartTitle}}" ng-show="chartData.length > 0" width="{{chartWidth}}" height="{{chartHeight}}" select="selectRow(selectedRowIndex)" id="pieChart"></pie-chart>
