@@ -13,8 +13,8 @@
 		vm.errorText = "";
 
 		$scope.chartTitle = "";
-		$scope.chartWidth = 1000;
-		$scope.chartHeight = 500;
+		$scope.chartWidth = 840;
+		$scope.chartHeight = 420;
 		$scope.chartData = [];
 
 

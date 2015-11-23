@@ -185,6 +185,12 @@ img {
 padAllCircles {
   margin-botom: 15px !important; }
 
+svg {
+  margin-left: -150 !important; }
+
+.svg {
+  margin-left: -350 !important; }
+
 .profilePic {
   display: inline-block;
   padding: 0px !important;
