@@ -1,9 +1,14 @@
 <ion-view view-title="Contacts">
 
-  <div class="header">
-    <h1> Contacts </h1>
+  <div class="header" layout>
+    <div>
+        <h1> Contacts </h1>
+    </div>
+    <div class="profacct">
+    <a ui-sref="tab.Profile"><img ng-src="{{ '/assets/ana.png' || glob.user.profilePic || '/assets/circle-yelloworange.png' }}" class="profileSm" alt="profile pic" /></a>
+    <a class=" button-icon icon ion-android-more-vertical"  ui-sref="tab.Account"></a>
+    </div>
   </div>
-
 
   <ion-content class="padding">
 

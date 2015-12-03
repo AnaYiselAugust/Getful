@@ -1,8 +1,14 @@
 <ion-view view-title="Circle">
 
-	<div class="header">
-	  <h1> Circles </h1>
-	</div>
+  <div class="header" layout>
+    <div>
+        <h1> Circles </h1>
+    </div>
+    <div class="profacct">
+    <a ui-sref="tab.Profile"><img ng-src="{{ '/assets/ana.png' || glob.user.profilePic || '/assets/circle-yelloworange.png' }}" class="profileSm" alt="profile pic" /></a>
+    <a class=" button-icon icon ion-android-more-vertical"  ui-sref="tab.Account"></a>
+    </div>
+  </div>
 
   <!-- <i type="button" class="icon ion-ios-plus add" style="z-index: 9999; position:fixed; bottom:10%; right:5%;font-size:45px;color:orange;"></i> -->
 

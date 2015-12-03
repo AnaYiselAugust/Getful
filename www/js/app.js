@@ -7,7 +7,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 'ngMaterial', 'ngFileUpload'])
+angular.module('app', ['ionic','ionic.service.core', 'app.controllers', 'app.services', 'ui.router', 'ngMaterial', 'ngFileUpload'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -39,11 +39,11 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       templateUrl: 'templates/language.html'
     })
         .state('Home',{
-      url: '/',
+      url: '/home',
       templateUrl: 'templates/home.html'
     })
         .state('HomeEs',{
-      url: '/',
+      url: '/inicio',
       templateUrl: 'templates/homeEs.html'
     })
 //---------------- SIGN UP STATES ------------------------
@@ -273,7 +273,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
 
 
 
-    .state('Profile', {
+    .state('tab.Profile', {
     url: '/profile',
     views: {
       'profile': {
@@ -281,7 +281,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
       }
     }
   })
-      .state('ProfileEs', {
+      .state('tabEs.ProfileEs', {
     url: '/profileEs',
     views: {
       'profileEs': {
@@ -310,7 +310,7 @@ angular.module('app', ['ionic', 'app.controllers', 'app.services', 'ui.router', 
 //---------------- ACCOUNT STATES ---------------
 
     .state('tab.Account', {
-    url: '/account',
+    url: '/account/:id',
     views: {
       'account': {
         templateUrl: 'templates/account.html',

@@ -27,10 +27,26 @@ navigation history that also transitions its views in and out.
     <ion-nav-view name="requests"></ion-nav-view>
   </ion-tab>
 
-    <!-- Account Tab -->
-  <ion-tab title="Account" icon-off="ion-android-more-vertical" icon-on="ion-android-more-vertical" ui-sref="tab.Account">
+
+<!-- This allows state changes that are not in the tab. They are hidden. -->
+      <!-- Profile and Account Icons in Title-->
+  <ion-tab title="Profile" icon-off="ion-android-more-vertical" icon-on="ion-android-more-vertical" ui-sref="tab.Profile" hidden="true">
+    <ion-nav-view name="profile"></ion-nav-view>
+  </ion-tab>
+
+  <ion-tab title="Account" icon-off="ion-android-more-vertical" icon-on="ion-android-more-vertical" ui-sref="tab.Account" hidden="true">
     <ion-nav-view name="account"></ion-nav-view>
+  </ion-tab>
+
+      <!-- Other States-->
+  <ion-tab title="EditProfile" icon-off="ion-android-more-vertical" icon-on="ion-android-more-vertical" ui-sref="tab.EditProfile" hidden="true">
+    <ion-nav-view name="editProfile"></ion-nav-view>
+  </ion-tab>
+
+    <ion-tab title="EditProfile" icon-off="ion-android-more-vertical" icon-on="ion-android-more-vertical" ui-sref="tab.EditProfile" hidden="true">
+    <ion-nav-view name="editProfile"></ion-nav-view>
   </ion-tab>
 
 
 </ion-tabs>
+
