@@ -44,7 +44,8 @@
 	    		data: {file: file, 'userId': vm.status._id}
 	    	}).then(function (resp) {
 	    		vm.loading = false;
-					$mdToast.show($mdToast.simple().content('Please relogin to show changes'))
+					$mdToast.show($mdToast.simple().content);
+					$state.go("tab.Dash");
 	    	}, function (resp) {
 	    		vm.loading = false;
 					console.log(resp);

@@ -1,33 +1,59 @@
-<div ng-controller="ProfileController as vm"> 
-	<form class="list" ng-submit="vm.updateProfile()">
-		<h1>Create Profile</h1>
+<div ng-controller="ProfileController as vm">
 		<a ui-sref="tab.Dash">Skip ></a>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
 
-		<div>
-			<ng-form name="form">
-					<div>
-						<md-button class=" md-raised" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" ngf-resize="{width: 600, height: 600}" THIS APPLIES MAX SIZE TO PHOTO ngf-min-height="100">Select Photo</md-button>
-					</div>
 
-					<h4>Photo Preview</h4>
-					<img style="width: 200px; height: 200px;" ngf-thumbnail="file || '/assets/circle-yelloworange.png'"><br/>
-					<md-button ng-click="submit()"> Upload Photo </md-button>
-			</ng-form>
 
-			<div style="margin: auto;" ng-show='vm.loading' layout='row' layout-sm='column' layout-align='space-around'>
-				<md-progress-circular md-mode='indeterminate' md-diameter='80'></md-progress-circular>
+		<!-- <div ng-controller="ProfileController as vm" layout layout-align="center">
+<div layout="column" flex="75">
+	<form ng-submit="vm.updateProfile();">
+	<div layout="column">
+		<h1>Edit Profile</h1>
+		<input ng-model="vm.profile.firstName" placeholder="First Name"/><br/>
+		<input ng-model="vm.profile.lastName" placeholder="Last Name"/><br/>
+		<input ng-model="vm.profile.phoneNumber" placeholder="Phone Number"/><br/>
+		<input ng-model="vm.profile.skills" placeholder="Skills"/><br/>
+		<textarea ng-model="vm.profile.bio" placeholder="Bio"></textarea><br/>
+		<input ng-model="vm.profile.linkedInUrl" placeholder="LinkedIn Url"/><br/> -->
+		<!-- <input ng-model="vm.profile.profilePic" placeholder="Profile Pic"/><br/>  -->
+
+<!-- THIS WORKS WITH UPLOAD PHOTO - CLOUDINARY -->
+		<!-- <md-button ng-click="photoUpload = true;"> Upload Profile Image </md-button> -->
+<center>
+			<div>
+				<form>
+						<div>
+							<button class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" ngf-resize="{width: 600, height: 600}" THIS APPLIES MAX SIZE TO PHOTO ngf-min-height="100">Choose a Profile Pic</button>
+						</div>
+						<br/>
+
+						<!-- <h4 style="color: white;">PREVIEW!</h4> -->
+						<br/>
+						<img style="width: 200px; height: 200px;" ngf-thumbnail=" file || '/thumb.jpg ' "><br/>
+						<br/>
+						<br/>
+
+						<button class="button" ng-click="submit()"> Upload Photo </button>
+				</form>
+				<br/>
+
+				<div style="margin: auto;" ng-show='vm.loading' layout='row' layout-sm='column' layout-align='space-around'>
+					<md-progress-circular md-mode='indeterminate' md-diameter='80'></md-progress-circular>
+				</div>
 			</div>
-
+		</center>
 		</div>
-		<div>
-				<label class="item item-input">
-				<input ng-model="vm.profile.skills" placeholder="Skills | List all the wonderful things you're good at (ie. swimming, front end development, facilitation, CPR" type="text" ng-required="true"/>
-				</label>
-				<label class="item item-input">
-				<input ng-model="vm.profile.bio" placeholder="Bio | Let your extended circles know a little bit about you." type="text" ng-required="true"/>
-				</label>
 
-			<button type="submit" class="button">Update Profile</button>
-		</div>
+<!-- END UPLOAD PHOTO w CLOUDINARY -->
+
+		<!-- <md-button type="submit">Update Profile</md-button>
+	</div>
+
 	</form>
-</div>
+	</div>
+
+</div> -->

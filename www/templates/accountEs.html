@@ -11,7 +11,7 @@
 		<div id="account" layout="column">
 			<div layout="row">
 			  <div flex="25">
-			  	<p>NOMBRE</p>
+			  	<p class="accountTitle">NOMBRE</p>
 			  </div>
 			  <div flex>
 			  	<p>{{ vm.account.firstName}} {{ vm.account.lastName || "Change your name." }}</p>
@@ -23,7 +23,7 @@
 
 			<div layout="row">
 			  <div flex="25">
-			  	<p>CORREO</p>
+			  	<p class="accountTitle">CORREO</p>
 			  </div>
 			  <div flex>
 			  	<p>{{vm.account.email || "Change your email address."}}</p>
@@ -35,7 +35,7 @@
 
 			<div layout="row">
 			  <div flex="25">
-			  	<p>CLAVE</p>
+			  	<p class="accountTitle">CLAVE</p>
 			  </div>
 			  <div flex>
 			  	<p>Last updated on {{vm.account.passwordDate || "Change your password."}}.</p>
@@ -47,7 +47,7 @@
 
 			<div layout="row">
 			  <div flex="25">
-			  	<p>IDIOMA</p>
+			  	<p class="accountTitle">IDIOMA</p>
 			  </div>
 			  <div flex>
 			  	<p>Selecciona un Idioma para usar esta aplicación.</p>
@@ -59,7 +59,7 @@
 
 			 <div layout="row">
 			  <div flex="25">
-			  	<p>PERFÍL</p>
+			  	<p class="accountTitle">PERFÍL</p>
 			  </div>
 			  <div flex>
 			  	<p>Actualiza tu perfíl público.</p>
@@ -71,7 +71,7 @@
 
 			<div layout="row">
 			  <div flex="25">
-			  	<p>CERRAR CUENTA</p>
+			  	<p class="accountTitle">CERRAR CUENTA</p>
 			  </div>
 			  <div flex>
 			  	<p>Cerrar cuenta permanente o temporeramente.</p>
